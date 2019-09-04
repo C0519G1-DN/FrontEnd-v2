@@ -16,6 +16,8 @@ import { SongBlockComponent } from './components/song/song-block/song-block.comp
 import { SongLikeComponent } from './components/song/song-like/song-like.component';
 import { SongViewsComponent } from './components/song/song-views/song-views.component';
 import { UserChangepassComponent } from './components/user/user-changepass/user-changepass.component';
+import { SingerAddComponent } from './components/singer/singer-add/singer-add.component';
+import { SingerInformationComponent } from './components/singer/singer-information/singer-information.component';
 
 
 const routes: Routes = [
@@ -74,6 +76,14 @@ const routes: Routes = [
   {
     path: 'change-password',
     component: UserChangepassComponent,
+  },
+  {
+    path: 'singer-add',
+    component: SingerAddComponent,
+  },
+  {
+    path: 'singer-infor',
+    component: SingerInformationComponent,
   },
   
   

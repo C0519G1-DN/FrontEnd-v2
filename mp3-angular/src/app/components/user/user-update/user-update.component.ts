@@ -2,7 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, ParamMap } from '@angular/router';
 import { FormGroup, Validators, AbstractControl, FormBuilder } from '@angular/forms';
 import { Router } from '@angular/router';
-import { RegisterService } from 'src/app/service/register.service';
+import { UserService } from 'src/app/service/user.service';
+
 @Component({
   selector: 'app-user-update',
   templateUrl: './user-update.component.html',
@@ -12,7 +13,7 @@ export class UserUpdateComponent implements OnInit {
   inforForm : FormGroup;
   errorMessage:any;
   isRegisterFailed = false;
-  constructor(private registerService: RegisterService, private activatedRoute: ActivatedRoute, private formBuilder: FormBuilder, private router: Router) { }
+  constructor(private userService: UserService, private activatedRoute: ActivatedRoute, private formBuilder: FormBuilder, private router: Router) { }
 
   ngOnInit() {
     this.inforForm = this.formBuilder.group({
@@ -23,10 +24,10 @@ export class UserUpdateComponent implements OnInit {
       phone: ['', [Validators.required, Validators.pattern(/^\+84\d{9,10}$/)]],
       email: ['', [Validators.required, Validators.email]],
       username: ['', [Validators.required, Validators.minLength(6)]],
-      delected: [true],
+      delected: [''],
     });
     const id = +this.activatedRoute.snapshot.paramMap.get('id');
-    this.registerService.getUserById(id).subscribe(
+    this.userService.getUserById(id).subscribe(
       next => {
         this.inforForm.patchValue(next);
       },
@@ -50,7 +51,7 @@ export class UserUpdateComponent implements OnInit {
 
   updateForm() {
     const { value } = this.inforForm;
-    this.registerService.updateProfile(value).subscribe(
+    this.userService.updateProfile(value).subscribe(
       next => {
         this.router.navigate(['/']);
       },

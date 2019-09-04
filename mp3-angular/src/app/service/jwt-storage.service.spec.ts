@@ -1,12 +1,12 @@
 import { TestBed } from '@angular/core/testing';
 
-import { RegisterService } from './register.service';
+import { JwtStorageService } from './jwt-storage.service';
 
-describe('RegisterService', () => {
+describe('JwtStorageService', () => {
   beforeEach(() => TestBed.configureTestingModule({}));
 
   it('should be created', () => {
-    const service: RegisterService = TestBed.get(RegisterService);
+    const service: JwtStorageService = TestBed.get(JwtStorageService);
     expect(service).toBeTruthy();
   });
 });

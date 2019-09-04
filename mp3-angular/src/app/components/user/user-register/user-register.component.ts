@@ -2,8 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, ParamMap } from '@angular/router';
 import { FormGroup, Validators, AbstractControl, FormBuilder } from '@angular/forms';
 import { Router } from '@angular/router';
-import { RegisterService } from 'src/app/service/register.service';
 import { IUser } from 'src/app/model/user/user.model';
+import { UserService } from 'src/app/service/user.service';
 
 @Component({
   selector: 'app-user-register',
@@ -14,7 +14,7 @@ export class UserRegisterComponent implements OnInit {
   registerForm: FormGroup;
   errorMessage:any;
   isRegisterFailed = false;
-  constructor(private registerService: RegisterService, private activatedRoute: ActivatedRoute, private formBuilder: FormBuilder, private router: Router) { }
+  constructor(private userService: UserService, private activatedRoute: ActivatedRoute, private formBuilder: FormBuilder, private router: Router) { }
 
   ngOnInit() {
     this.registerForm = this.formBuilder.group({
@@ -45,7 +45,7 @@ export class UserRegisterComponent implements OnInit {
   createForm() {
     if (this.registerForm.valid) {
       const { value } = this.registerForm;
-      this.registerService.register(value).subscribe(
+      this.userService.register(value).subscribe(
         next => {
           alert("Successful");
           this.router.navigate(['/']);

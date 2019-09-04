@@ -10,8 +10,7 @@ const httpOptions = {
 @Injectable({
   providedIn: 'root'
 })
-export class RegisterService {
-
+export class UserService {
   private URL = "http://localhost:8080"
   constructor(private http: HttpClient) { }
 
@@ -21,7 +20,7 @@ export class RegisterService {
   getUserById(id: number): Observable<any> {
     return this.http.get<any>(`${this.URL}/myprofile/${id}`);
 }
-updateProfile(myInfor: any): Observable<any> {
+  updateProfile(myInfor: any): Observable<any> {
   return this.http.put<any>(`${this.URL}/myprofile/${myInfor.id}`, myInfor, httpOptions);
 }
 }

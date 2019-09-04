@@ -1,0 +1,19 @@
+<div class="container">
+    <div class="content">
+        <h3>Songs have just created</h3>
+        <div class="songCreated" *ngFor="let song of songs">
+            <img src="{{song.image}}" alt="{{song.name}}" width="250px" height="200px"
+                [routerLink]="['/homemp3/userinfo']" routerLinkActive="router-link-active">
+            <p>Name: {{song.name}}</p>
+            <p>Author: {{song.author}}</p>
+        </div>
+    </div>
+
+    <div class="content2">
+        <h3>Playlists have just created</h3>
+        <div class="playlistCreated" *ngFor="let playlist of playlists">
+            <img src="{{playlist.image}}" alt="{{playlist.name}}" width="250px" height="200px">
+            <p>Name: {{playlist.name}}</p>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,20 @@
+<p>upload-song works!</p>
+<form [formGroup]="upsongForm" (submit)="createForm()">
+
+        <label>name</label>
+        <input  type="text" formControlName="name" >
+
+        <label>des</label>
+        <input  type="text" formControlName="des" >
+
+    <label>Song</label>
+    <input  type="file" formControlName="file_song" (change)="onSelectSong($event)">
+
+    <label>author</label>
+        <input  type="text" formControlName="author" >
+
+    <label>Img</label>
+    <input  type="file" formControlName="img_song" (change)="onSelectImg($event)">
+
+    <button type="submit" class="btn btn-primary" style="width: 200px">ADD</button>
+</form>

@@ -1,0 +1,17 @@
+
+.col title{
+    color: aliceblue;
+}
+.wraper{
+    font-weight: bolder;
+    border-radius: 50px 50px;
+    background: aliceblue;
+    margin: 20px auto;
+}
+img{
+    padding: 20px;
+}
+.btn-primary{
+    width: 150px;
+    margin-bottom: 20px
+}

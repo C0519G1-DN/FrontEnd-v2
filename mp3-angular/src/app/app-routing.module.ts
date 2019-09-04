@@ -7,29 +7,76 @@ import { UserUpdateComponent } from './components/user/user-update/user-update.c
 import { UserRegisterComponent } from './components/user/user-register/user-register.component';
 import { SongUploadComponent } from './components/song/song-upload/song-upload.component';
 import { HomeComponent } from './components/layout/home/home.component';
+import { MyContributionComponent } from './components/layout/my-contribution/my-contribution.component';
+import { PlaylistLikeComponent } from './components/playlist/playlist-like/playlist-like.component';
+import { PlaylistViewsComponent } from './components/playlist/playlist-views/playlist-views.component';
+import { PlaylistBlockComponent } from './components/playlist/playlist-block/playlist-block.component';
+import { PlaylistAddComponent } from './components/playlist/playlist-add/playlist-add.component';
+import { SongBlockComponent } from './components/song/song-block/song-block.component';
+import { SongLikeComponent } from './components/song/song-like/song-like.component';
+import { SongViewsComponent } from './components/song/song-views/song-views.component';
+import { UserChangepassComponent } from './components/user/user-changepass/user-changepass.component';
 
 
 const routes: Routes = [
-  {
-    path: 'register',
-    component: UserRegisterComponent,
-  },
-  {
-    path: 'upsong',
-    component: SongUploadComponent,
-  },
   {
     path: '',
     component: HomeComponent,
   },
   {
-    path: 'update',
-    component: UserUpdateComponent,
+    path: 'register',
+    component: UserRegisterComponent,
   },
   {
-    path: 'myprofile',
+    path: 'update',
+    component: UserUpdateComponent,
+  }, 
+  {
+    path: 'my-profile',
     component: UserInformationComponent,
   },
+  {
+    path: 'my-contribution',
+    component: MyContributionComponent,
+  },
+  {
+    path: 'playlist-listening',
+    component: PlaylistBlockComponent,
+  },
+  {
+    path: 'playlist-like',
+    component: PlaylistLikeComponent,
+  },
+  {
+    path: 'playlist-views',
+    component: PlaylistViewsComponent,
+  },
+  {
+    path: 'playlist-add',
+    component: PlaylistAddComponent,
+  },
+  {
+    path: 'song-listening',
+    component: SongBlockComponent,
+  },
+  {
+    path: 'song-like',
+    component: SongLikeComponent,
+  },
+  {
+    path: 'song-views',
+    component: SongViewsComponent,
+  },
+  {
+    path: 'song-upload',
+    component: SongUploadComponent,
+  },
+  {
+    path: 'change-password',
+    component: UserChangepassComponent,
+  },
+  
+  
 ];
 
 @NgModule({

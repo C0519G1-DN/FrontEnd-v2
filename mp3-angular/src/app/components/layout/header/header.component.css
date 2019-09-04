@@ -5,3 +5,7 @@
 .navbar-nav text{
     color: white;
 }
+li:hover{ 
+    cursor: pointer;
+    
+}

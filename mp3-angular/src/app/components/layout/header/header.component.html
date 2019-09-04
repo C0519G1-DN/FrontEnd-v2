@@ -1,52 +1,70 @@
 <!-- header -->
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-    <a class="navbar-brand" [routerLink]="['/homemp3']" routerLinkActive="router-link-active" >HOME</a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
-      aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-  
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav mr-auto">
-        <li class="nav-item">
-          <a class="nav-link" >TOP VIEWS
-            PLAYLISTS <span class="sr-only">(current)</span></a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">TOP VIEWS SONGS</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">TOP LIKES PLAYLISTS</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">TOP LIKES SONGS</a>
-        </li>
-  
-        <li *ngIf="logged" class="nav-link">
-          <span (click)="login()">Login</span>
-        </li>
-        <li *ngIf="logged" class="nav-link">
-          <span [routerLink]="['/register']" >Register</span>
-        </li>
+  <a class="navbar-brand" [routerLink]="['']" routerLinkActive="router-link-active">HOME</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+    aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
 
-        <li class="nav-item dropdown">
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+
+
+      <li class="nav-item dropdown">
+        <a class="nav-link" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
+          aria-expanded="false">PLAYLISTS</a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" [routerLink]="['/playlist-views']" routerLinkActive="router-link-active">TOP VIEW</a>
+          <a class="dropdown-item" [routerLink]="['/playlist-like']">TOP LIKE</a>
+        </div>
+      </li>
+
+      <li class="nav-item dropdown">
+        <a class="nav-link" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
+          aria-expanded="false">SONG</a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" [routerLink]="['/song-views']" routerLinkActive="router-link-active">TOP VIEW</a>
+          <a class="dropdown-item" [routerLink]="['/song-like']">TOP LIKE</a>
+        </div>
+      </li>
+
+
+      <li *ngIf="logged" class="nav-link">
+        <span (click)="login()">Login</span>
+      </li>
+      <li *ngIf="logged" class="nav-link">
+        <span [routerLink]="['/register']">Register</span>
+      </li>
+
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
+          aria-haspopup="true" aria-expanded="false" *ngIf=!logged>
+          Hi Hai
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" [routerLink]="['/my-profile']" routerLinkActive="router-link-active">Profile</a>
+          <a class="dropdown-item" [routerLink]="['/my-contribution']">My Contribution</a>
+          <div class="dropdown-divider"></div>
+          <a class="dropdown-item" (click)="logout()">Logout</a>
+        </div>
+      </li>
+      <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
             aria-haspopup="true" aria-expanded="false" *ngIf=!logged>
-            Hi Hai
+            ADD
           </a>
           <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-            <a class="dropdown-item" [routerLink]="['/myprofile']" routerLinkActive="router-link-active">Profile</a>
-            <a class="dropdown-item" href="#">My Collection</a>
-            <div class="dropdown-divider"></div>
-            <a class="dropdown-item" href="#">Logout</a>
+            <a class="dropdown-item" [routerLink]="['/song-upload']" routerLinkActive="router-link-active">ADD-SONG</a>
+            <a class="dropdown-item" [routerLink]="['/playlist-add']">ADD-PLAYLIST</a>
+            
           </div>
         </li>
-      </ul>
-  
-      <form class="form-inline my-2 my-lg-0">
-        <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-      </form>
-    </div>
-  </nav>
-  <!-- header -->
+    </ul>
+
+    <form class="form-inline my-2 my-lg-0">
+      <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+      <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+    </form>
+  </div>
+</nav>
+<!-- header -->

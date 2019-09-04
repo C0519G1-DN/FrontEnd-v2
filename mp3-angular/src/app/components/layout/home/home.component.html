@@ -1,5 +1,5 @@
 <div class="container">
-    <div class="content">
+    <!-- <div class="content">
         <h3>Songs have just created</h3>
         <div class="songCreated" *ngFor="let song of songs">
             <img src="{{song.image}}" alt="{{song.name}}" width="250px" height="200px"
@@ -15,5 +15,21 @@
             <img src="{{playlist.image}}" alt="{{playlist.name}}" width="250px" height="200px">
             <p>Name: {{playlist.name}}</p>
         </div>
-    </div>
+    </div> -->
+    New <app-playlist-cell [routerLink]="['/playlist-listening']"></app-playlist-cell>
+    New <app-playlist-cell [routerLink]="['/playlist-listening']"></app-playlist-cell>
+    New <app-song-cell [routerLink]="['/song-listening']"></app-song-cell>
+    New <app-song-cell [routerLink]="['/song-listening']"></app-song-cell>
+    New <app-song-cell [routerLink]="['/song-listening']"></app-song-cell>
+    New <app-song-cell [routerLink]="['/song-listening']"></app-song-cell>
+    New <app-song-cell [routerLink]="['/song-listening']"></app-song-cell>
+    New <app-song-cell [routerLink]="['/song-listening']"></app-song-cell>
+    <div class="container">
+            <p>Others:</p>
+            <i class="fas fa-cloud"></i>
+            <i class="fas fa-coffee"></i>
+            <i class="fas fa-car"></i>
+            <i class="fas fa-file"></i>
+            <i class="fas fa-bars"></i>
+          </div>
 </div>

@@ -5,9 +5,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { UserInformationComponent } from './components/user/user-information/user-information.component';
 import { HttpClientModule } from '@angular/common/http';
-
 import { UserUpdateComponent } from './components/user/user-update/user-update.component';
-
 import { UserRegisterComponent } from './components/user/user-register/user-register.component';
 import { SongUploadComponent } from './components/song/song-upload/song-upload.component';
 import { FooterComponent } from './components/layout/footer/footer.component';

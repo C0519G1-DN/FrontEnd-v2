@@ -2,8 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, ParamMap } from '@angular/router';
 import { FormGroup, Validators, AbstractControl, FormBuilder } from '@angular/forms';
 import { Router } from '@angular/router';
-import { RegisterService } from 'src/app/service/register.service';
-import { IUser } from 'src/app/model/user/user.model';
 import { UploadSongService } from 'src/app/service/upload-song.service';
 import { error } from 'util';
 

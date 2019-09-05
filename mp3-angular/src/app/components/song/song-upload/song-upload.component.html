@@ -1,20 +1,36 @@
-<p>upload-song works!</p>
-<form [formGroup]="upsongForm" (submit)="createForm()">
+<div class="justify-content-md-center">
+    <div class="col-md-6 offset-md-3 wraper">
 
-        <label>name</label>
-        <input  type="text" formControlName="name" >
+        <h1 class="text-center">Upload-Song</h1>
 
-        <label>des</label>
-        <input  type="text" formControlName="des" >
-
-    <label>Song</label>
-    <input  type="file" formControlName="file_song" (change)="onSelectSong($event)">
-
-    <label>author</label>
-        <input  type="text" formControlName="author" >
-
-    <label>Img</label>
-    <input  type="file" formControlName="img_song" (change)="onSelectImg($event)">
-
-    <button type="submit" class="btn btn-primary" style="width: 200px">ADD</button>
-</form>
+        <form [formGroup]="upsongForm" (submit)="createForm()">
+            <div class="form-group">
+                <label>Name</label>
+                <input class="form-control" type="text" formControlName="name">
+            </div>
+            <div class="form-group">
+                <label>Author</label>
+                <input class="form-control" type="text" formControlName="author">
+            </div>
+            <div class="form-group">
+                <label>Description</label>
+                <input class="form-control" type="text" formControlName="des">
+            </div>
+            <div class="form-group">
+                <label >File-Song (.mp3)</label>
+                <br>
+                <input type="file" accept=".mp3" formControlName="file_song"
+                    (change)="onSelectSong($event)">
+            </div>
+            <div class="form-group">
+                <label>Img (.jpg)</label>
+                <br>
+                <input  type="file"  accept=".jpg" formControlName="img_song" (change)="onSelectImg($event)">
+            </div>
+            <div class="col text-center">
+                <button type="submit" class="btn btn-primary center-block"
+                    style="width: 200px; margin: 20px">UPLOAD</button>
+            </div>
+        </form>
+    </div>
+</div>

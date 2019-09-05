@@ -16,4 +16,15 @@ export class UploadSongService {
   upSong(data): Observable<any>{
     return this.http.post(`${this.URL}/upsong`, data);
   }
+
+  getSongNew(data): Observable<any>{
+    return this.http.get(`${this.URL}/getsongnew`, data);
+  }
+
+  getSongView(data): Observable<any>{
+    return this.http.get(`${this.URL}/getsongview`, data);
+  }
+  getSongLike(data): Observable<any>{
+    return this.http.get(`${this.URL}/getsonglike`, data);
+  }
 }

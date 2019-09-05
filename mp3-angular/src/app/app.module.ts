@@ -4,7 +4,11 @@ import { FormsModule,ReactiveFormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { UserInformationComponent } from './components/user/user-information/user-information.component';
-import { HttpClientModule } from '@angular/common/http';
+
+
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+
+
 import { UserUpdateComponent } from './components/user/user-update/user-update.component';
 import { UserRegisterComponent } from './components/user/user-register/user-register.component';
 import { SongUploadComponent } from './components/song/song-upload/song-upload.component';
@@ -26,6 +30,8 @@ import { UserChangepassComponent } from './components/user/user-changepass/user-
 import { ForgetPassComponent } from './components/feature/forget-pass/forget-pass.component';
 import { MyContributionComponent } from './components/layout/my-contribution/my-contribution.component';
 import { SongCellComponent } from './components/song/song-cell/song-cell.component';
+import { JwtInterceptorService } from './service/jwt-interceptor.service';
+import { LoginComponent } from './components/feature/login/login.component';
 
 @NgModule({
   declarations: [
@@ -52,7 +58,8 @@ import { SongCellComponent } from './components/song/song-cell/song-cell.compone
     UserChangepassComponent,
     ForgetPassComponent,
     MyContributionComponent,
-    SongCellComponent
+    SongCellComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
@@ -62,7 +69,9 @@ import { SongCellComponent } from './components/song/song-cell/song-cell.compone
     FormsModule
 
   ],
-  providers: [],
+  providers: [
+    { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptorService, multi: true}
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

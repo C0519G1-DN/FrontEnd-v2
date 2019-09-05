@@ -26,11 +26,11 @@ export class SingerAddComponent implements OnInit, OnDestroy {
       this.subscription.unsubscribe();
     }
   }
-  onAddArtist() {
+  onAddSingger() {
 
     this.subscription = this.singgerService.addArtist(this.singger).subscribe(data => {
       if (data.id && data) {
-        this.routerService.navigate(['/melon.mp3.vn/artist']);
+        this.routerService.navigate(['/my-contribution']);
       }
     });
 

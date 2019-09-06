@@ -3,6 +3,7 @@ import { ActivatedRoute, ParamMap } from '@angular/router';
 import { FormGroup, Validators, AbstractControl, FormBuilder } from '@angular/forms';
 import { Router } from '@angular/router';
 import { UserService } from 'src/app/service/user.service';
+import { JwtStorageService } from 'src/app/service/jwt-storage.service';
 
 @Component({
   selector: 'app-user-update',
@@ -13,7 +14,7 @@ export class UserUpdateComponent implements OnInit {
   inforForm : FormGroup;
   errorMessage:any;
   isRegisterFailed = false;
-  constructor(private userService: UserService, private activatedRoute: ActivatedRoute, private formBuilder: FormBuilder, private router: Router) { }
+  constructor(private userService: UserService, private activatedRoute: ActivatedRoute, private formBuilder: FormBuilder, private router: Router, private jwtStorage: JwtStorageService) { }
 
   ngOnInit() {
     this.inforForm = this.formBuilder.group({
@@ -26,8 +27,8 @@ export class UserUpdateComponent implements OnInit {
       username: ['', [Validators.required, Validators.minLength(6)]],
       delected: [''],
     });
-    // const id = +this.activatedRoute.snapshot.paramMap.get('id');
-    this.userService.getUserById(1).subscribe(
+    const id= parseInt(this.jwtStorage.getID());
+    this.userService.getUserById(id).subscribe(
       next => {
         this.inforForm.patchValue(next);
       },

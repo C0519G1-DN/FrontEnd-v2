@@ -33,16 +33,16 @@
       </li>
 
 
-      <li class="nav-link"  *ngIf=logged>
+      <li class="nav-link"  *ngIf="!feature.isLogin()">
           <app-login></app-login>
       </li>
-      <li *ngIf="logged" class="nav-link">
+      <li *ngIf="!feature.isLogin()" class="nav-link">
         <span [routerLink]="['/register']">Register</span>
       </li>
 
       <li class="nav-item dropdown">
         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
-          aria-haspopup="true" aria-expanded="false" *ngIf=!logged>
+          aria-haspopup="true" aria-expanded="false" *ngIf="feature.isLogin()">
           {{myuser}}
         </a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
@@ -58,7 +58,7 @@
 
 
           <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
-            aria-haspopup="true" aria-expanded="false" *ngIf=!logged>
+            aria-haspopup="true" aria-expanded="false" *ngIf="feature.isLogin()">
             ADD
           </a>
           <div class="dropdown-menu" aria-labelledby="navbarDropdown">

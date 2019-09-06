@@ -3,18 +3,4 @@
     background-color: #EA967B; 
     min-height: 570px;
 }
-.d-block {
-    width: 80%;
-    height: 400px;
-    
-}
 
-.carousel-inner>.item>a>img,
-.carousel-inner>.item>img,
-.img-responsive,
-.thumbnail a>img,
-.thumbnail>img {
-    display: block;
-    width: 100%;
-    height: 300px;
-}

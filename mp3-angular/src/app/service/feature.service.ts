@@ -9,7 +9,6 @@ export class FeatureService {
   private url = "http://localhost:8080"
   constructor(private http: HttpClient) { }
 
-
   login(data): Observable<any>{
     return this.http.post<any>(`${this.url}/login`, data);
 }

@@ -3,6 +3,7 @@ import { ActivatedRoute, ParamMap } from '@angular/router';
 import { FormGroup, Validators, AbstractControl, FormBuilder } from '@angular/forms';
 import { Router } from '@angular/router';
 import { UserService } from 'src/app/service/user.service';
+import { JwtStorageService } from 'src/app/service/jwt-storage.service';
 @Component({
   selector: 'app-user-information',
   templateUrl: './user-information.component.html',
@@ -12,12 +13,13 @@ export class UserInformationComponent implements OnInit {
 
   profile : any
  
-  constructor(private userService: UserService, private activatedRoute: ActivatedRoute, private router: Router) { }
+  constructor(private jwtStorage: JwtStorageService, private userService: UserService, private activatedRoute: ActivatedRoute, private router: Router) { }
 
   ngOnInit() {
-    
-    const id = +this.activatedRoute.snapshot.paramMap.get('id');
-    this.userService.getUserById(id).subscribe(
+    // const name= this.jwtStorage.getUsername;
+    // console.log(name);
+    // const id = +this.activatedRoute.snapshot.paramMap.get('id');
+    this.userService.getUserById(1).subscribe(
       next => {
         this.profile= next;
       },

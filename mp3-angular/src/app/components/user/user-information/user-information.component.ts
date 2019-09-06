@@ -16,10 +16,8 @@ export class UserInformationComponent implements OnInit {
   constructor(private jwtStorage: JwtStorageService, private userService: UserService, private activatedRoute: ActivatedRoute, private router: Router) { }
 
   ngOnInit() {
-    // const name= this.jwtStorage.getUsername;
-    // console.log(name);
-    // const id = +this.activatedRoute.snapshot.paramMap.get('id');
-    this.userService.getUserById(1).subscribe(
+    const id= parseInt(this.jwtStorage.getID());
+    this.userService.getUserById(id).subscribe(
       next => {
         this.profile= next;
       },
@@ -29,7 +27,7 @@ export class UserInformationComponent implements OnInit {
     );
   }
   updateForm() {
-    const id = +this.activatedRoute.snapshot.paramMap.get('id');
+    const id= parseInt(this.jwtStorage.getID());
         // this.router.navigate(['/update/'+id]);
         this.router.navigate(['/update/']);
       

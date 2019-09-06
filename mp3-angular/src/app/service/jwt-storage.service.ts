@@ -11,7 +11,7 @@ export class JwtStorageService {
 
   constructor() { }
   public logOut(){
-    window.localStorage.clear;
+    window.localStorage.clear();
   }
 
   public saveUsername(username: string) {
@@ -22,6 +22,10 @@ export class JwtStorageService {
   public saveID(id: string) {
     window.localStorage.removeItem(ID_KEY);
     window.localStorage.setItem(ID_KEY, id);
+  }
+
+  public getID(): string {
+    return localStorage.getItem(ID_KEY);
   }
 
   public getUsername(): string {

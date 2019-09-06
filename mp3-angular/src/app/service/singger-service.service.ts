@@ -8,7 +8,7 @@ import { Observable } from 'rxjs';
 })
 export class SinggerServiceService {
   public singger: Singgers[];
-  public API : string ='http://localhost:8080/singger';
+  public API : string ='http://localhost:3000/singger';
 
   constructor(private http : HttpClient) { }
 

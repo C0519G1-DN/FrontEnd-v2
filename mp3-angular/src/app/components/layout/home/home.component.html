@@ -9,14 +9,6 @@
     New <app-song-cell [routerLink]="['/song-listening']"></app-song-cell>
 </div>
 <div class="content">
-    <h3>Top Bài Hát Xem Nhiều Nhất</h3>
-    <div class="top" *ngFor="let song of songs">
-        <img src="{{ song.avatar_song }}" alt="{{ song.name_song }}" width="80%" height="200px">
-        <h4>{{ song.name_song }}</h4>
-        <p>{{ song.name_artist }}</p>
-    </div>
-</div>
-<div class="content">
     <h3>Top Bài Hát Like Nhiều</h3>
     <div class="top" *ngFor="let song of songs">
         <img src="{{ song.avatar_song }}" alt="{{ song.name_song }}" width="80%" height="200px">

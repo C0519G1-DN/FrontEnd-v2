@@ -9,7 +9,7 @@ import { Playlists } from '../model/playlist/playlists';
 export class PlaylistServiceService {
 
   public playlist:PlaylistServiceService[];
-  public urlAPI: string = 'http://localhost:8080/playlist';
+  public urlAPI: string = 'http://localhost:3000/playlist';
 
   constructor(private http: HttpClient) { }
 

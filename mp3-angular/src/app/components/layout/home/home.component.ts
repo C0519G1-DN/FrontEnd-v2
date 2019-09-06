@@ -1,37 +1,48 @@
-import { Component, OnInit } from '@angular/core';
-// import { ISong } from 'src/app/model/song.module';
-// import { IPlaylist } from 'src/app/model/playlist.module';
-// import { SongService } from 'src/app/service/song.service';
-// import { PlaylistService } from 'src/app/service/playlist.service';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
+import { Songs } from 'src/app/model/song/songs';
+import { Playlists } from 'src/app/model/playlist/playlists';
+import { SongServiceService } from 'src/app/service/song-service.service';
+import { PlaylistServiceService } from 'src/app/service/playlist-service.service';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.css']
 })
-export class HomeComponent implements OnInit {
+export class HomeComponent implements OnInit, OnDestroy {
 
 
-  // public songs: ISong[];
-  // public playlists: IPlaylist[];
+  public songs: Songs[];
+  public playlist: Playlists[];
+  public subscription: Subscription;
+  public subscriptionplaylist: Subscription;
 
   constructor(
-    // private songService: SongService,
-    // public playService: PlaylistService,
+    private songService: SongServiceService,
+    public playService: PlaylistServiceService,
     public routerService: Router,
     public routerActivatedService: ActivatedRoute) { }
 
   ngOnInit() {
-    // this.songService.getAllSong().subscribe(data => {
-    //   console.log(data);
-    //   this.songs = data;
-    // }),
-    //   this.playService.getAllPlaylist().subscribe(data1 => {
-    //     this.playlists = data1;
-    //   })
+    this.subscription = this.songService.getAllSong().subscribe(data => {
+      this.songs = data;
+    })
+    this.subscriptionplaylist = this.playService.getAllPlaylist().subscribe(data => {
+      this.playlist = data;
+    })
   }
 
+  ngOnDestroy() {
 
+    if (this.subscription) {
+      this.subscription.unsubscribe();
+    }
+    if (this.subscriptionplaylist) {
+      this.subscriptionplaylist.unsubscribe();
+    }
+
+  }
 
 }

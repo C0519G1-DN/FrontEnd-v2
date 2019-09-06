@@ -1,1 +1,57 @@
-<p>my-contribution works!</p>
+<div class="container">
+    <div class="row" style="color:wheat;">
+        <div class="col" style="color:black">
+            <div class="content">
+                <div class="artists">
+                    <h3> List New Singger</h3>
+                    <button type="button" class="btn btn-primary btn-artists" [routerLink]="['/singer-add']">Create new
+                        Artist</button>
+                </div>
+                <div class="top" *ngFor="let item of artists">
+                    <img src="{{ item.avatar_artist }}" alt="{{ item.name_artist }}">
+                    <a [routerLink]="['/melon.mp3.vn/artist',item.id, item.name_artist]">
+                        <h6>{{ item.name_artist }}</h6>
+                    </a>
+                    <button type="button" class="btn btn-primary btn-comment"
+                        [routerLink]="['/melon.mp3.vn/artist', item.id, item.name_artist, 'comment']">Comment</button>
+                </div>
+                <div class="top-add">
+                    <a class="a-add" [routerLink]="['/singer-add']">+</a>
+                </div>
+            </div>
+        </div>
+        <div class="col">
+            <div class="content">
+                <div class="playlist">
+                    <h3>List New Playlist</h3>
+                    <button type="button" class="btn btn-primary btn-playlist" [routerLink]="['/playlist-add']">Create
+                        new playlist</button>
+                </div>
+                <div class="top" *ngFor="let item of playlist">
+                    <img src="{{ item.avatar }}" alt="{{ item.name_playlist }}" width="80%" height="200px">
+                    <a [routerLink]="['/melon.mp3.vn/playlist',item.id, item.name_playlist]">
+                        <h4>{{ item.name_playlist }}</h4>
+                    </a>
+                </div>
+                <div class="top-add">
+                    <a class="a-add" [routerLink]="['/playlist-add']">+</a>
+                </div>
+            </div>
+        </div>
+        <div class="col">
+            <div class="content" style="color: black">
+                <div>
+                    <h3>List New Song Upload</h3>
+                    <button type="button" class="btn btn-primary btn-playlist" [routerLink]="['/song-upload']">Upload Song
+                        </button>
+                </div>
+                <div class="top-add">
+                        <a class="a-add" [routerLink]="['/song-upload']">+</a>
+                    </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<router-outlet></router-outlet>

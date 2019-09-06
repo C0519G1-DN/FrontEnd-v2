@@ -26,8 +26,8 @@ export class UserUpdateComponent implements OnInit {
       username: ['', [Validators.required, Validators.minLength(6)]],
       delected: [''],
     });
-    const id = +this.activatedRoute.snapshot.paramMap.get('id');
-    this.userService.getUserById(id).subscribe(
+    // const id = +this.activatedRoute.snapshot.paramMap.get('id');
+    this.userService.getUserById(1).subscribe(
       next => {
         this.inforForm.patchValue(next);
       },
@@ -53,7 +53,7 @@ export class UserUpdateComponent implements OnInit {
     const { value } = this.inforForm;
     this.userService.updateProfile(value).subscribe(
       next => {
-        this.router.navigate(['/']);
+        this.router.navigate(['/my-profile']);
       },
       error => {this.errorMessage = error.error;
         console.log(this.errorMessage);

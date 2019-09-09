@@ -32,6 +32,23 @@ import { MyContributionComponent } from './components/layout/my-contribution/my-
 import { SongCellComponent } from './components/song/song-cell/song-cell.component';
 import { JwtInterceptorService } from './service/jwt-interceptor.service';
 import { LoginComponent } from './components/feature/login/login.component';
+import { SocialLoginModule, AuthServiceConfig, FacebookLoginProvider } from "angular-6-social-login";
+import { SongCellIPComponent } from './components/song/song-cell-i-p/song-cell-i-p.component';
+import { PlaylistAddSongComponent } from './components/playlist/playlist-add-song/playlist-add-song.component';
+import { SongFilterPipe } from './model/song/songFilterPipe';
+
+// Configs 
+export function getAuthServiceConfigs() {
+  let config = new AuthServiceConfig(
+    [
+      {
+        id: FacebookLoginProvider.PROVIDER_ID,
+        provider: new FacebookLoginProvider("359579788280313")
+      }
+    ]
+  );
+  return config;
+}
 
 @NgModule({
   declarations: [
@@ -59,18 +76,26 @@ import { LoginComponent } from './components/feature/login/login.component';
     ForgetPassComponent,
     MyContributionComponent,
     SongCellComponent,
-    LoginComponent
+    LoginComponent,
+    SongCellIPComponent,
+    PlaylistAddSongComponent,
+    SongFilterPipe
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
     ReactiveFormsModule,
-    FormsModule
+    FormsModule,
+    SocialLoginModule
 
   ],
   providers: [
-    { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptorService, multi: true}
+    { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptorService, multi: true},
+    {
+      provide: AuthServiceConfig,
+      useFactory: getAuthServiceConfigs,
+    },
   ],
   bootstrap: [AppComponent]
 })

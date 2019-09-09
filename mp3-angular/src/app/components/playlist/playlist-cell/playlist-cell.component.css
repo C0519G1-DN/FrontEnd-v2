@@ -1,0 +1,25 @@
+.tag-song{
+    height: 50px;
+    padding: 0px
+}
+
+.my-custom-scrollbar {
+   
+    position: relative;
+    height: 200px;
+    overflow: auto;
+    border: 1px solid seashell;
+    
+    }
+    .table-wrapper-scroll-y {
+        
+        background-color:rgb(47, 141, 133,0.3);
+    display: block;
+    
+   
+    }
+
+    .tag-thumb{
+        height: 200px;
+    }
+  

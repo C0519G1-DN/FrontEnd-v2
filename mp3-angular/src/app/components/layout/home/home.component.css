@@ -46,7 +46,7 @@ h4 {
 .container{
     /* background-image: url('/assets/index.jpg'); */
     background-color: #EA967B; 
-    /* min-height: 700px; */
+    min-height: 700px;
 }
 
 .carousel-inner>.item>a>img,

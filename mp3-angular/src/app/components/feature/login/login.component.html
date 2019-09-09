@@ -28,7 +28,7 @@
             <div class="form-group">
               <input type="password"  formControlName="password" class="form-control" id="password1" placeholder="Password">
             </div>
-            <button (click)="login()" class="btn btn-info btn-block btn-round" data-dismiss="modal">Login</button>
+            <button (click)="nomalLogin()" class="btn btn-info btn-block btn-round" data-dismiss="modal">Login</button>
           </form>
           
           <div class="text-center text-muted delimiter">or use a social network</div>
@@ -36,7 +36,7 @@
             <button type="button" class="btn btn-secondary btn-round" data-toggle="tooltip" data-placement="top" title="Twitter">
               <i class="fa fa-tumblr-square" style="font-size:24px" ></i>
             </button>
-            <button type="button" class="btn btn-secondary btn-round" data-toggle="tooltip" data-placement="top" title="Facebook">
+            <button type="button" class="btn btn-secondary btn-round" data-toggle="tooltip" data-placement="top" data-dismiss="modal" (click)="socialLogin()" title="Facebook">
               <i class="fa fa-facebook-official" style="font-size:24px"></i>
             </button>
             <button type="button" class="btn btn-secondary btn-round" data-toggle="tooltip" data-placement="top" title="Google">

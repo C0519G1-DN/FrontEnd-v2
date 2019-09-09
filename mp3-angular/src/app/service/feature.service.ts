@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Observable } from 'rxjs';
+import { Observable, BehaviorSubject } from 'rxjs';
 import { JwtStorageService } from './jwt-storage.service';
 
 @Injectable({
@@ -16,5 +16,12 @@ export class FeatureService {
 user = this.jwtStorage.getUsername();
   isLogin(): boolean {
     return !!this.user
+  };
+islogin= false;
+  private state$ = new BehaviorSubject<Boolean>(false);
+  status=this.state$.asObservable();
+  changeState(myChange) {
+    console.log("change to:", myChange);
+    this.state$.next(myChange);
   }
 }

@@ -14,7 +14,7 @@ export class HeaderComponent implements OnInit {
   myuser: string;
   ngOnInit() {
     this.myuser= this.jwtStorage.getUsername();
-    console.log(this.myuser);
+  
   }
   logout(){
     this.jwtStorage.logOut();

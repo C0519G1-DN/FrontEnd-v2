@@ -26,7 +26,6 @@ export class UserRegisterComponent implements OnInit {
       email: ['', [Validators.required, Validators.email]],
       username: ['', [Validators.required, Validators.minLength(6)]],
       password: ['', [Validators.required, Validators.minLength(6)]],
-      delected: [false]
     });
   }
   get username(): AbstractControl {

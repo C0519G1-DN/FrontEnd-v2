@@ -16,8 +16,12 @@ import { SongViewsComponent } from './components/song/song-views/song-views.comp
 import { UserChangepassComponent } from './components/user/user-changepass/user-changepass.component';
 import { SingerAddComponent } from './components/singer/singer-add/singer-add.component';
 import { SingerInformationComponent } from './components/singer/singer-information/singer-information.component';
+import { ForgetPassComponent } from './components/feature/forget-pass/forget-pass.component';
+import { SongAddComponent } from './components/song/song-add/song-add.component';
+
 import { PlaylistEditComponent } from './components/playlist/playlist-edit/playlist-edit.component';
 import { PlaylistInfoComponent } from './components/playlist/playlist-info/playlist-info.component';
+
 
 
 const routes: Routes = [
@@ -28,6 +32,10 @@ const routes: Routes = [
   {
     path: 'register',
     component: UserRegisterComponent,
+  },
+  {
+    path:'forget-pass',
+    component: ForgetPassComponent,
   },
   {
     path: 'update',
@@ -92,6 +100,10 @@ const routes: Routes = [
   {
     path: 'singer-infor',
     component: SingerInformationComponent,
+  },
+  {
+    path: 'song-add',
+    component:SongAddComponent
   },
 ];
 

@@ -64,10 +64,14 @@
     </div>
 
     <div class="content">
-        <h3>Playlist Mới</h3>
+        <h3>New Playlist</h3>
 
-        <div class="top" *ngFor="let iterm of playlist">
-            <h4>{{ iterm.name_playlist }}</h4>
+        <div class="top">
+            <ol>
+                <li class="cursor" *ngFor="let playlist of playlists" >
+                    <p>{{playlist.name}}</p>
+                </li>
+            </ol>
         </div>
     </div>
 

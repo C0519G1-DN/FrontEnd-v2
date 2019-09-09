@@ -3,38 +3,46 @@ import { Subscription } from 'rxjs';
 import { Playlists } from 'src/app/model/playlist/playlists';
 import { PlaylistServiceService } from 'src/app/service/playlist-service.service';
 import { Router } from '@angular/router';
+import { FormGroup, FormBuilder } from '@angular/forms';
 
 @Component({
   selector: 'app-playlist-add',
   templateUrl: './playlist-add.component.html',
   styleUrls: ['./playlist-add.component.css']
 })
-export class PlaylistAddComponent implements OnInit, OnDestroy{
+export class PlaylistAddComponent implements OnInit{
 
-  public playlist: Playlists;
-  public subscription:Subscription;
+  // public playlist: Playlists;
+  // public subscription:Subscription;
+  newPlaylistForm: FormGroup;
 
-  constructor(public playlistService: PlaylistServiceService,
-    public routerService: Router) { }
+  constructor(private playlistService : PlaylistServiceService,
+    private formBuilder : FormBuilder,
+    private router : Router) { }
 
   ngOnInit() {
-    this.playlist = new Playlists();
+    this.newPlaylistForm = this.formBuilder.group({
+      id: [''],
+      name: [''],
+      des: [''],
+      username_create: [''],
+      day_create : ['']
+    })
   }
 
-  ngOnDestroy() {
-    if (this.subscription) {
-      this.subscription.unsubscribe();
-    }
-  }
+  // ngOnDestroy() {
+  //   if (this.subscription) {
+  //     this.subscription.unsubscribe();
+  //   }
+  // }
 
-  onAddPlaylist() {
-
-    this.subscription = this.playlistService.addPlaylist(this.playlist).subscribe(data => {
-      if (data.id && data) {
-        this.routerService.navigate(['/melon.mp3.vn/playlist']);
-      }
-    });
-
+  createPlaylist(){
+    const{value} = this.newPlaylistForm;
+    this.playlistService.createPlaylist(value).subscribe(data => {
+      console.log(data);
+      alert("The new playlist is created sucessfully !");
+      this.router.navigate(['/my-contribution']);
+    })
   }
 
 }

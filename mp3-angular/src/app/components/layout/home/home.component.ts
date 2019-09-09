@@ -17,9 +17,9 @@ export class HomeComponent implements OnInit {
 
 
   public songs: Songs[];
-  public playlist: Playlists[];
   public subscription: Subscription;
   public subscriptionplaylist: Subscription;
+  public playlists: Playlists[];
 
   constructor(
 
@@ -28,15 +28,25 @@ export class HomeComponent implements OnInit {
     public routerService: Router,
     public routerActivatedService: ActivatedRoute,
     public jwtStorage: JwtStorageService,
-    public feature: FeatureService) { }
+    public feature: FeatureService,
+    
+    private playlistService: PlaylistServiceService
+    
+    ) { } 
 
   ngOnInit() {
-    
-    this.subscription = this.songService.getAllSong().subscribe(data => {
-      this.songs = data;
-    })
-    this.subscriptionplaylist = this.playService.getAllPlaylist().subscribe(data => {
-      this.playlist = data;
+    this.viewListPlaylist();
+    // this.subscription = this.songService.getAllSong().subscribe(data => {
+    //   this.songs = data;
+    // })
+    // this.subscriptionplaylist = this.playService.getAllPlaylist().subscribe(data => {
+    //   this.playlist = data;
+    // })
+  }
+
+  viewListPlaylist() {
+    this.playlistService.getAllPlaylist().subscribe((data: Playlists[]) => {
+      this.playlists = data;
     })
   }
 

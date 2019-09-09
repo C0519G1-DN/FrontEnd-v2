@@ -32,6 +32,8 @@ import { MyContributionComponent } from './components/layout/my-contribution/my-
 import { SongCellComponent } from './components/song/song-cell/song-cell.component';
 import { JwtInterceptorService } from './service/jwt-interceptor.service';
 import { LoginComponent } from './components/feature/login/login.component';
+import { PlaylistEditComponent } from './components/playlist/playlist-edit/playlist-edit.component';
+import { PlaylistInfoComponent } from './components/playlist/playlist-info/playlist-info.component';
 
 @NgModule({
   declarations: [
@@ -59,7 +61,9 @@ import { LoginComponent } from './components/feature/login/login.component';
     ForgetPassComponent,
     MyContributionComponent,
     SongCellComponent,
-    LoginComponent
+    LoginComponent,
+    PlaylistEditComponent,
+    PlaylistInfoComponent
   ],
   imports: [
     BrowserModule,

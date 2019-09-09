@@ -10,12 +10,17 @@ import { Song2 } from '../model/song/song2';
 export class SongServiceService {
 
   public songs: Songs[];
+
   public API : string ='http://localhost:8080/';
+
+  public API : string ='http://localhost:3000/songs';
+  URL = 'http://localhost:8080/getsongs';
+
 
   constructor(private http : HttpClient) { }
 
   getAllSong(): Observable<Songs[]>{
-    return this.http.get<Songs[]>(`${this.API}`);
+    return this.http.get<Songs[]>(`${this.URL}`);
   }
   getSong(id: number) : Observable<Songs>{
     return this.http.get<Songs>(`${this.API}/${id}`);

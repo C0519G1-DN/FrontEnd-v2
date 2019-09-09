@@ -1,0 +1,20 @@
+.tag{
+    padding: 10px 30px
+}
+.tag:hover{
+  cursor: pointer;
+}
+
+.thumbAdd{
+    background: rgb(236, 210, 186);
+    border-radius: 10% ;
+    border: 1px solid blue;
+    height: 250px;
+}
+
+  .text {
+    top: 50%;
+    color: black;
+    font-size: 100px;
+    text-align: center;
+  } 

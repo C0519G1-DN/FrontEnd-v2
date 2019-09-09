@@ -1,5 +1,5 @@
 <div class="container">
-    <div class="row" style="color:wheat;">
+    <div class="row">
         <div class="col" style="color:black">
             <div class="content">
                 <div class="artists">
@@ -27,31 +27,39 @@
                     <button type="button" class="btn btn-primary btn-playlist" [routerLink]="['/playlist-add']">Create
                         new playlist</button>
                 </div>
-                <div class="top" *ngFor="let item of playlist">
-                    <img src="{{ item.avatar }}" alt="{{ item.name_playlist }}" width="80%" height="200px">
-                    <a [routerLink]="['/melon.mp3.vn/playlist',item.id, item.name_playlist]">
-                        <h4>{{ item.name_playlist }}</h4>
-                    </a>
+
+                <div class="top">
+                    <ol>
+                        <li class="cursor" *ngFor="let playlist of playlists" [routerLink]="['/playlist-edit',playlist.id]"
+                            routerLinkActive="router-link-active">
+                            <p>Name Playlist: {{playlist.name}}</p>
+                        </li>
+                    </ol>
                 </div>
-                <div class="top-add">
+
+                <!-- <div class="top" *ngFor="let playlist of playlists">
+                    <p>Name Playlist: {{playlist.name}}</p>
+                </div> -->
+
+                <!-- <div class="top-add">
                     <a class="a-add" [routerLink]="['/playlist-add']">+</a>
-                </div>
+                </div> -->
+
+
             </div>
         </div>
         <div class="col">
             <div class="content" style="color: black">
                 <div>
                     <h3>List Song Upload</h3>
-                    <button type="button" class="btn btn-primary btn-playlist" [routerLink]="['/song-upload']">Upload Song
-                        </button>
+                    <button type="button" class="btn btn-primary btn-playlist" [routerLink]="['/song-upload']">Upload
+                        Song
+                    </button>
                 </div>
                 <div class="top-add">
-                        <a class="a-add" [routerLink]="['/song-upload']">+</a>
-                    </div>
+                    <a class="a-add" [routerLink]="['/song-upload']">+</a>
+                </div>
             </div>
         </div>
     </div>
 </div>
-
-
-<router-outlet></router-outlet>

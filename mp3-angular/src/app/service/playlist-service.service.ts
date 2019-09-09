@@ -8,24 +8,28 @@ import { Playlists } from '../model/playlist/playlists';
 })
 export class PlaylistServiceService {
 
-  public playlist:PlaylistServiceService[];
-  public urlAPI: string = 'http://localhost:3000/playlist';
+  // public playlist:PlaylistServiceService[];
+  private URL = "http://localhost:8080/playlists"
 
   constructor(private http: HttpClient) { }
 
-  getAllPlaylist(): Observable<Playlists[]>{
-    return this.http.get<Playlists[]>(`${this.urlAPI}`);
+  getAllPlaylist() {
+    return this.http.get(`${this.URL}`);
   }
-  getPlaylist(id: number) : Observable<Playlists>{
-    return this.http.get<Playlists>(`${this.urlAPI}/${id}`);
+
+  getPlaylistById(id: number) {
+    return this.http.get(`${this.URL}/getoneplaylist/${id}`);
   }
-  addPlaylist(playlist:Playlists): Observable<Playlists>{
-    return this.http.post<Playlists>(`${this.urlAPI}`,playlist);
+
+  updatePlaylist(playlist: Playlists) {
+    return this.http.put(`${this.URL}/updateplaylist/${playlist.id}`, playlist);
   }
-  editPlaylist(playlist:Playlists):Observable<Playlists>{
-    return this.http.put<Playlists>(`${this.urlAPI}/${playlist.id}`,playlist)
+
+  createPlaylist(playlist: Playlists) {
+    return this.http.post(`${this.URL}/createplaylist`, playlist);
   }
-  deletePlaylist(id: number): Observable<Playlists>{
-    return this.http.delete<Playlists>(`${this.urlAPI}/${id}`);
+
+  deletePlaylist(id: number) {
+    return this.http.delete(`${this.URL}/deleteplaylist/${id}`);
   }
 }

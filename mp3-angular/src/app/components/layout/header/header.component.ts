@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { JwtStorageService } from 'src/app/service/jwt-storage.service';
+import { FeatureService } from 'src/app/service/feature.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-header',
@@ -7,14 +10,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HeaderComponent implements OnInit {
 
-  constructor() { }
-
+  constructor(private feature: FeatureService, private jwtStorage: JwtStorageService, private router: Router) { }
+  myuser: string;
   ngOnInit() {
-  }
-  logged = true;
+    this.myuser= this.jwtStorage.getUsername();
   
-  login() {
-    this.logged = !this.logged;
   }
-
+  logout(){
+    this.jwtStorage.logOut();
+    window.location.reload();
+    
+  }
 }

@@ -1,6 +1,29 @@
 <p>song-like works!</p>
 
 Dùng NgFor kết hợp InPut để thể hiện. có thêm button để add
-<div>
-<app-song-cell [routerLink]="['/song-listening']" ></app-song-cell>
-</div>
+
+
+<div class="row ">
+        <app-song-cell [routerLink]="['/song-listening']" class="col-lg-3 col-md-4 col-sm-4 tag"
+            img="https://images.pexels.com/photos/36764/marguerite-daisy-beautiful-beauty.jpg?auto=compress&cs=tinysrgb&dpr=1&w=500"
+            name="Perfect" singer="Ed"></app-song-cell>
+        <app-song-cell [routerLink]="['/song-listening']" class="col-lg-3 col-md-4 col-sm-4 tag"
+            img="https://images.pexels.com/photos/36764/marguerite-daisy-beautiful-beauty.jpg?auto=compress&cs=tinysrgb&dpr=1&w=500"
+            name="Perfect" singer="Ed"></app-song-cell>
+        <app-song-cell [routerLink]="['/song-listening']" class="col-lg-3 col-md-4 col-sm-4 tag"
+            img="https://images.pexels.com/photos/36764/marguerite-daisy-beautiful-beauty.jpg?auto=compress&cs=tinysrgb&dpr=1&w=500"
+            name="Perfect" singer="Ed"></app-song-cell>
+        <app-song-cell [routerLink]="['/song-listening']" class="col-lg-3 col-md-4 col-sm-4 tag"
+            img="https://images.pexels.com/photos/36764/marguerite-daisy-beautiful-beauty.jpg?auto=compress&cs=tinysrgb&dpr=1&w=500"
+            name="Perfect" singer="Ed"></app-song-cell>
+        <app-song-cell [routerLink]="['/song-listening']" class="col-lg-3 col-md-4 col-sm-4 tag"
+            img="https://images.pexels.com/photos/36764/marguerite-daisy-beautiful-beauty.jpg?auto=compress&cs=tinysrgb&dpr=1&w=500"
+            name="Perfect" singer="Ed"></app-song-cell>
+    
+    
+        <div class="col-lg-3 col-md-4 col-sm-4 tag" [routerLink]="['/song-upload']">
+            <div class="text-center justify-content-center thumbAdd">
+                <div class="text">+</div>
+            </div>
+        </div>
+    </div>

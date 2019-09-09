@@ -1,0 +1,9 @@
+<p>playlist-add-song works!</p>
+<div class="form-group">
+    <input style="width: 300px" [(ngModel)]="search" type="text" class="form-control" placeholder="Search by name">
+</div>
+<div class="row" >
+    <div class="col-2 tag"   *ngFor="let song of songs | songFilter:search">
+        <app-song-cell (click)="addTheSong(song.id)" [name]=song.name [singer]=song.author></app-song-cell>
+    </div>
+</div>

@@ -18,9 +18,9 @@ export class UserService {
     return this.http.post<any>(`${this.URL}/register`, data, httpOptions);
   }
   getUserById(id: number): Observable<any> {
-    return this.http.get<any>(`${this.URL}/myprofile/${id}`);
+    return this.http.get<any>(`${this.URL}/update/${id}`);
 }
   updateProfile(myInfor: any): Observable<any> {
-  return this.http.put<any>(`${this.URL}/myprofile/${myInfor.id}`, myInfor, httpOptions);
+  return this.http.put<any>(`${this.URL}/update/${myInfor.id}`, myInfor, httpOptions);
 }
 }

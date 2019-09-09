@@ -1,4 +1,4 @@
-<!-- header -->
+
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
   <div>
     <img src="/assets/logo1.png" style="width:20px;height:20px" [routerLink]="['']"
@@ -33,17 +33,17 @@
       </li>
 
 
-      <li class="nav-link">
+      <li class="nav-link"  *ngIf="!feature.isLogin() && !feature.islogin">
           <app-login></app-login>
       </li>
-      <li *ngIf="logged" class="nav-link">
+      <li *ngIf="!feature.isLogin() && !feature.islogin" class="nav-link">
         <span [routerLink]="['/register']">Register</span>
       </li>
 
       <li class="nav-item dropdown">
         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
-          aria-haspopup="true" aria-expanded="false" *ngIf=!logged>
-          Hi Hai
+          aria-haspopup="true" aria-expanded="false" *ngIf="feature.isLogin() || feature.islogin">
+          {{myuser}}
         </a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
           <a class="dropdown-item" [routerLink]="['/my-profile']" routerLinkActive="router-link-active">Profile</a>
@@ -53,12 +53,8 @@
         </div>
       </li>
       <li class="nav-item dropdown">
-
-
-
-
           <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
-            aria-haspopup="true" aria-expanded="false" *ngIf=!logged>
+            aria-haspopup="true" aria-expanded="false" *ngIf="feature.isLogin() || feature.islogin">
             ADD
           </a>
           <div class="dropdown-menu" aria-labelledby="navbarDropdown">
@@ -78,4 +74,3 @@
     </form>
   </div>
 </nav>
-<!-- header -->

@@ -1,5 +1,5 @@
 .songCreated{
-    width: 25%;
+    width: 20%;
     float: left;
 }
 
@@ -8,16 +8,16 @@
 }
 
 .playlistCreated{
-    width: 25%;
+    width: 20%;
     float: left;
 }
 
 
 .content {
-    margin: 0;
-    float: left;
+    /* margin: 0; */
+    /* float: left; */
     width: 100%;
-    height: auto;
+    /* height: auto; */
 }
 
 
@@ -25,7 +25,7 @@
 .top {
     margin: 0;
     float: left;
-    width: 25%;
+    width: 20%;
     height: auto;
 }
 
@@ -36,4 +36,25 @@ h3 {
 
 h4 {
     color: #d882b7ee;
+}
+
+.d-block {
+    width: 80%;
+    height: 400px;
+    
+}
+.container{
+    /* background-image: url('/assets/index.jpg'); */
+    background-color: #EA967B; 
+    min-height: 700px;
+}
+
+.carousel-inner>.item>a>img,
+.carousel-inner>.item>img,
+.img-responsive,
+.thumbnail a>img,
+.thumbnail>img {
+    display: block;
+    width: 100%;
+    height: 300px;
 }

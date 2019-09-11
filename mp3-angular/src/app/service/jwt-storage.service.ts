@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 const TOKEN_KEY = 'AuthToken';
 const ID_KEY = 'MyID';
 const USERNAME_KEY = 'AuthUsername';
+const PLAYLIST_KEY = 'PlaylistID';
 
 @Injectable({
   providedIn: 'root'
@@ -22,6 +23,14 @@ export class JwtStorageService {
   public saveID(id: string) {
     window.localStorage.removeItem(ID_KEY);
     window.localStorage.setItem(ID_KEY, id);
+  }
+
+  public savePlaylist(id: string){
+    window.sessionStorage.removeItem(PLAYLIST_KEY);
+    window.sessionStorage.setItem(PLAYLIST_KEY, id);
+  }
+  public getPlaylist(): string{
+    return sessionStorage.getItem(PLAYLIST_KEY)
   }
 
   public getID(): string {

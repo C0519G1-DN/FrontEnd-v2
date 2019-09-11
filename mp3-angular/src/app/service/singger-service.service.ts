@@ -9,8 +9,12 @@ import { Observable } from 'rxjs';
 export class SinggerServiceService {
   public singger: Singgers[];
   public API : string ='http://localhost:3000/singger';
-
+  private URL = "http://localhost:8080"
   constructor(private http : HttpClient) { }
+
+  upSinger(data): Observable<any>{
+    return this.http.post(`${this.URL}/upsinger`, data);
+  }
 
   getAllArtist(): Observable<Singgers[]>{
     return this.http.get<Singgers[]>(`${this.API}`);

@@ -4,6 +4,6 @@
 </div>
 <div class="row" >
     <div class="col-2 tag"   *ngFor="let song of songs | songFilter:search">
-        <app-song-cell (click)="addTheSong(song.id)" [name]=song.name [singer]=song.author></app-song-cell>
+        <app-song-cell (click)="addTheSong(song.id)" [img]=song.link_img_song [name]=song.name [singer]=song.author></app-song-cell>
     </div>
 </div>

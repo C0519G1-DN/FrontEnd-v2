@@ -12,9 +12,24 @@
     height: 250px;
 }
 
-  .text {
+  .textp {
     top: 50%;
     color: black;
     font-size: 100px;
     text-align: center;
   } 
+
+  img{
+    height: 50%;
+    width: 50%;   
+}
+.thumb{
+    background: rgb(236, 210, 186);
+    border-radius: 10% ;
+    border: 1px solid blue;
+    /* height: 300px; */
+    padding: 10px;
+}
+.text{
+    padding: 10px
+}

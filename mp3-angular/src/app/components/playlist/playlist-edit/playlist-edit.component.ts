@@ -27,10 +27,14 @@ export class PlaylistEditComponent implements OnInit {
       name: [''],
       des: [''],
       username_create: [''],
-      createDay: ['']
+      createDay: [''],
+      delected: [''],
+      songs:[''],
+      
     })
 
     this.loadData();
+    console.log(this.infoPlaylist);
   }
 
   loadData() {
@@ -48,7 +52,7 @@ export class PlaylistEditComponent implements OnInit {
     this.playlistService.updatePlaylist(value).subscribe(data => {
       console.log(data);
       alert("Edited Successfully");
-      this.router.navigate(['/my-contribution']);
+      // this.router.navigate(['/my-contribution']);
     })
   }
 

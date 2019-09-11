@@ -17,7 +17,7 @@ import { UserChangepassComponent } from './components/user/user-changepass/user-
 import { SingerAddComponent } from './components/singer/singer-add/singer-add.component';
 import { SingerInformationComponent } from './components/singer/singer-information/singer-information.component';
 import { PlaylistEditComponent } from './components/playlist/playlist-edit/playlist-edit.component';
-import { PlaylistInfoComponent } from './components/playlist/playlist-info/playlist-info.component';
+// import { PlaylistInfoComponent } from './components/playlist/playlist-info/playlist-info.component';
 
 
 const routes: Routes = [
@@ -53,16 +53,16 @@ const routes: Routes = [
     path: 'playlist-views',
     component: PlaylistViewsComponent,
   },
-  {
-    path: 'playlist-info/:id',
-    component: PlaylistInfoComponent,
-  },
+  // {
+  //   path: 'playlist-info/:id',
+  //   component: PlaylistInfoComponent,
+  // },
   {
     path: 'playlist-add',
     component: PlaylistAddComponent,
   },
   {
-    path: 'playlist-edit/:id',
+    path: 'playlist-edit',
     component: PlaylistEditComponent,
   },
   {

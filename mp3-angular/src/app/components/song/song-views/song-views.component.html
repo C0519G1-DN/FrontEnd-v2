@@ -1,28 +1,13 @@
 <p>song-views works!</p>
 
-Dùng NgFor kết hợp InPut để thể hiện. có thêm button để add
-
-<div class="row ">
-    <app-song-cell [routerLink]="['/song-listening']" class="col-lg-3 col-md-4 col-sm-4 tag"
-        img="https://images.pexels.com/photos/36764/marguerite-daisy-beautiful-beauty.jpg?auto=compress&cs=tinysrgb&dpr=1&w=500"
-        name="Perfect" singer="Ed"></app-song-cell>
-    <app-song-cell [routerLink]="['/song-listening']" class="col-lg-3 col-md-4 col-sm-4 tag"
-        img="https://images.pexels.com/photos/36764/marguerite-daisy-beautiful-beauty.jpg?auto=compress&cs=tinysrgb&dpr=1&w=500"
-        name="Perfect" singer="Ed"></app-song-cell>
-    <app-song-cell [routerLink]="['/song-listening']" class="col-lg-3 col-md-4 col-sm-4 tag"
-        img="https://images.pexels.com/photos/36764/marguerite-daisy-beautiful-beauty.jpg?auto=compress&cs=tinysrgb&dpr=1&w=500"
-        name="Perfect" singer="Ed"></app-song-cell>
-    <app-song-cell [routerLink]="['/song-listening']" class="col-lg-3 col-md-4 col-sm-4 tag"
-        img="https://images.pexels.com/photos/36764/marguerite-daisy-beautiful-beauty.jpg?auto=compress&cs=tinysrgb&dpr=1&w=500"
-        name="Perfect" singer="Ed"></app-song-cell>
-    <app-song-cell [routerLink]="['/song-listening']" class="col-lg-3 col-md-4 col-sm-4 tag"
-        img="https://images.pexels.com/photos/36764/marguerite-daisy-beautiful-beauty.jpg?auto=compress&cs=tinysrgb&dpr=1&w=500"
-        name="Perfect" singer="Ed"></app-song-cell>
-
-
-    <div class="col-lg-3 col-md-4 col-sm-4 tag" [routerLink]="['/song-upload']">
-        <div class="text-center justify-content-center thumbAdd">
-            <div class="text">+</div>
+<div class="row " >
+    <div *ngFor="let song of songs" [routerLink]="['/song-listening']" class="col-lg-3 col-md-4 col-sm-4 tag">
+<div class="text-center thumb justify-content-center"> 
+        <img src={{song.link_img_song}} class="rounded-circle">
+        <div class="text">
+            <h3>{{song.name}}</h3>
+            <h4 *ngFor="let singer of song.singers" >{{singer.name}}</h4>
         </div>
     </div>
+</div>
 </div>

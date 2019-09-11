@@ -7,7 +7,7 @@ import { Component, OnInit, Input } from '@angular/core';
 })
 export class SongCellComponent implements OnInit {
   @Input() name: string;
-  // @Input() img: string;
+  @Input() img: string;
   @Input() singer: string;
   
   constructor() { }

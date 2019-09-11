@@ -20,7 +20,7 @@ import { ForgetPassComponent } from './components/feature/forget-pass/forget-pas
 import { SongAddComponent } from './components/song/song-add/song-add.component';
 
 import { PlaylistEditComponent } from './components/playlist/playlist-edit/playlist-edit.component';
-import { PlaylistInfoComponent } from './components/playlist/playlist-info/playlist-info.component';
+// import { PlaylistInfoComponent } from './components/playlist/playlist-info/playlist-info.component';
 
 
 
@@ -61,16 +61,16 @@ const routes: Routes = [
     path: 'playlist-views',
     component: PlaylistViewsComponent,
   },
-  {
-    path: 'playlist-info/:id',
-    component: PlaylistInfoComponent,
-  },
+  // {
+  //   path: 'playlist-info/:id',
+  //   component: PlaylistInfoComponent,
+  // },
   {
     path: 'playlist-add',
     component: PlaylistAddComponent,
   },
   {
-    path: 'playlist-edit/:id',
+    path: 'playlist-edit',
     component: PlaylistEditComponent,
   },
   {

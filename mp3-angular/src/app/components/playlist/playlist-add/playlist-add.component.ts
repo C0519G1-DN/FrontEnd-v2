@@ -4,6 +4,7 @@ import { Playlists } from 'src/app/model/playlist/playlists';
 import { PlaylistServiceService } from 'src/app/service/playlist-service.service';
 import { Router } from '@angular/router';
 import { FormGroup, FormBuilder } from '@angular/forms';
+import { JwtStorageService } from 'src/app/service/jwt-storage.service';
 
 @Component({
   selector: 'app-playlist-add',
@@ -18,15 +19,16 @@ export class PlaylistAddComponent implements OnInit{
 
   constructor(private playlistService : PlaylistServiceService,
     private formBuilder : FormBuilder,
-    private router : Router) { }
+    private router : Router, private jwtStorageService: JwtStorageService) { }
 
   ngOnInit() {
+    const userId = parseInt(this.jwtStorageService.getID())
     this.newPlaylistForm = this.formBuilder.group({
       id: [''],
       name: [''],
       des: [''],
-      username_create: [''],
-      day_create : ['']
+      username_create: [userId],
+      // day_create : ['']
     })
   }
 

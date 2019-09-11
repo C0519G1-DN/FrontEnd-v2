@@ -7,6 +7,7 @@ import { SinggerServiceService } from 'src/app/service/singger-service.service';
 import { SongServiceService } from 'src/app/service/song-service.service';
 import { PlaylistServiceService } from 'src/app/service/playlist-service.service';
 import { Playlists } from 'src/app/model/playlist/playlists';
+import { JwtStorageService } from 'src/app/service/jwt-storage.service';
 
 @Component({
   selector: 'app-my-contribution',
@@ -27,6 +28,7 @@ export class MyContributionComponent implements OnInit {
     public routerActivatedService: ActivatedRoute,
     public singerService: SinggerServiceService,
     private playlistService: PlaylistServiceService,
+    private jwtStorageService: JwtStorageService,
     ) { }
 
 
@@ -45,7 +47,11 @@ export class MyContributionComponent implements OnInit {
         this.playlists = data;
       })
     }
-
+    addSong(id: number){
+      const a= String(id);
+      this.jwtStorageService.savePlaylist(a);
+      this.routerService.navigate(['/playlist-edit']);
+    }
     ngOnDestroy() {
       if (this.subscription) {
         this.subscription.unsubscribe();

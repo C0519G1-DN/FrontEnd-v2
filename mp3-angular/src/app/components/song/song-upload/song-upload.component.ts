@@ -4,6 +4,7 @@ import { FormGroup, Validators, AbstractControl, FormBuilder } from '@angular/fo
 import { Router } from '@angular/router';
 import { UploadSongService } from 'src/app/service/upload-song.service';
 import { error } from 'util';
+import { JwtStorageService } from 'src/app/service/jwt-storage.service';
 
 @Component({
   selector: 'app-song-upload',
@@ -12,21 +13,23 @@ import { error } from 'util';
 })
 export class SongUploadComponent implements OnInit {
   upsongForm: FormGroup;
-  constructor(private upsong: UploadSongService, private activatedRoute: ActivatedRoute, private formBuilder: FormBuilder, private router: Router) { }
+  constructor(private upsong: UploadSongService, private activatedRoute: ActivatedRoute, private formBuilder: FormBuilder, private router: Router, private jwtStorageService: JwtStorageService) { }
   ngOnInit() {
+    const id = parseInt(this.jwtStorageService.getID());
     this.upsongForm = this.formBuilder.group({
       name: [''],
       des: [''],
       file_song: [''],
       author: [''],
-      img_song: ['']
+      img_song: [''],
+      user_create: [id],
+
 
     });
   }
   onSelectSong(event) {
     console.log(event);
     if (event.target.files.length > 0) {
-      console.log('111');
       const file = event.target.files[0];
       this.upsongForm.get('file_song').setValue(file);
 
@@ -48,6 +51,7 @@ export class SongUploadComponent implements OnInit {
     formData.append('file_song', this.upsongForm.get('file_song').value);
     formData.append('author', this.upsongForm.get('author').value);
     formData.append('img_song', this.upsongForm.get('img_song').value);
+    formData.append('user_create', this.upsongForm.get('user_create').value);
     this.upsong.upSong(formData).subscribe(
       next => {
         if (confirm("Upload completed. Do you want more ?")) {

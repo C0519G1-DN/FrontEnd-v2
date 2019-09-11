@@ -54,7 +54,7 @@ export function getAuthServiceConfigs() {
 }
 
 import { PlaylistEditComponent } from './components/playlist/playlist-edit/playlist-edit.component';
-import { PlaylistInfoComponent } from './components/playlist/playlist-info/playlist-info.component';
+// import { PlaylistInfoComponent } from './components/playlist/playlist-info/playlist-info.component';
 
 
 @NgModule({
@@ -91,10 +91,10 @@ import { PlaylistInfoComponent } from './components/playlist/playlist-info/playl
 
     SongCellIPComponent,
     PlaylistAddSongComponent,
-    SongFilterPipe
+    SongFilterPipe,
 
     PlaylistEditComponent,
-    PlaylistInfoComponent
+    // PlaylistInfoComponent
 
 
   ],

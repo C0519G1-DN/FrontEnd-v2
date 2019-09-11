@@ -1,6 +1,27 @@
-<p>playlist-views works!</p>
 
-Dùng NgFor kết hợp InPut để thể hiện. có thêm button để add
-<div>
-<app-playlist-cell [routerLink]="['/playlist-listening']" ></app-playlist-cell>
-</div>
+<!-- <app-playlist-cell [routerLink]="['/playlist-listening']" ></app-playlist-cell> -->
+
+<div class="row tag-playlist" [routerLink]="['/playlist-listening']" *ngFor="let playlist of a">
+        <img class="col-3 tag-thumb"
+            src="https://images.pexels.com/photos/36764/marguerite-daisy-beautiful-beauty.jpg?auto=compress&cs=tinysrgb&dpr=1&w=500">
+        <div class="col-9">
+            <div class="table-wrapper-scroll-y my-custom-scrollbar" >
+                <app-song-cell-i-p *ngFor="let song of playlist.songs" class="tag-song"
+                img={{song.link_img_song}}
+                name={{song.name}} author={{song.author}}></app-song-cell-i-p>
+            </div>
+        </div>
+        
+    </div>
+
+<!-- <div *ngFor="let playlist of a">
+    {{playlist.name}}
+
+    <div *ngFor="let song of playlist.songs">
+        
+        <app-song-cell-i-p class="tag-song"
+                img={{song.link_img_song}}
+                name={{song.name}} author={{song.author}}></app-song-cell-i-p>
+    </div>
+
+</div> -->

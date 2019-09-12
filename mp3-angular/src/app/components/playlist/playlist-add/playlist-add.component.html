@@ -1,5 +1,5 @@
 <!-- <div class="container control" > -->
-    <div class="container col-xs-5 col-sm-5 col-md-5 col-lg-5 control">
+    <!-- <div class="container col-xs-5 col-sm-5 col-md-5 col-lg-5 control">
         <div class="panel panel-primary">
             <div class="panel-heading">
                 <br><br>
@@ -24,5 +24,28 @@
                 </div>
             </div>
         </div>
-    </div>
+    </div> -->
 <!-- </div> -->
+
+
+<div class="justify-content-md-center">
+    <div class="col-md-6 offset-md-3 wraper">
+
+        <h1 class="text-center">ADD PLAYLIST FORM</h1>
+
+        <form [formGroup]="newPlaylistForm" (submit)="createPlaylist()">
+            <div class="form-group">
+                <label>Name Playlist</label>
+                <input class="form-control" type="text" formControlName="name">
+            </div>
+            <div class="form-group">
+                <label>Description</label>
+                <input class="form-control" type="text" formControlName="des">
+            </div>
+            <div class="col text-center">
+                <button type="submit" class="btn btn-primary center-block"
+                    style="width: 200px; margin: 20px">UPLOAD</button>
+            </div>
+        </form>
+    </div>
+</div>

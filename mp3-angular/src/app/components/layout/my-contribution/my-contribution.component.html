@@ -27,16 +27,14 @@
                     <button type="button" class="btn btn-primary btn-playlist" [routerLink]="['/playlist-add']">Create
                         new playlist</button>
                 </div>
-
+                <br>
                 <div class="top">
-                    <ol>
-                        <li class="cursor" *ngFor="let playlist of playlists" 
-                        (click)="addSong(playlist.id)"
-                        
-                            routerLinkActive="router-link-active">
-                            <p>Name Playlist: {{playlist.name}}</p>
+                    <ul>
+                        <li class="cursor" *ngFor="let playlist of playlists" (click)="addSong(playlist.id)"
+                            routerLinkActive="router-link-active"  class="wrapped2">
+                            Name Playlist: {{playlist.name}}
                         </li>
-                    </ol>
+                    </ul>
                 </div>
 
                 <!-- <div class="top" *ngFor="let playlist of playlists">

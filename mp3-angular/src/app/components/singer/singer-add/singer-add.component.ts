@@ -48,17 +48,20 @@ export class SingerAddComponent implements OnInit{
     formData.append('user_create', this.upsingerForm.get('user_create').value);
     this.singgerService.upSinger(formData).subscribe(
       next => {
-        if (confirm("Upload completed. Do you want more ?")) {
-          this.upsingerForm.get('name').setValue('');
-          this.upsingerForm.get('des').setValue('');
-          this.upsingerForm.get('img_singer').setValue('');
-        }
-        console.log(next);
-      },
+        // if (confirm("Upload completed. Do you want more ?")) {
+        //   this.upsingerForm.get('name').setValue('');
+        //   this.upsingerForm.get('des').setValue('');
+        //   this.upsingerForm.get('img_singer').setValue('');
+        // }
+        this.router.navigate(["/singer-list"])
+      }
+      ,
       error => {
         alert("Plz fill full content")
-      }
+      },
+      
     );
+   
 
     // this.subscription = this.singgerService.addArtist(this.singger).subscribe(data => {
     //   if (data.id && data) {

@@ -2,7 +2,6 @@ import { Injectable } from '@angular/core';
 import { Songs } from '../model/song/songs';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
-// import { Song2 } from '../model/song/song2';
 
 @Injectable({
   providedIn: 'root'
@@ -11,11 +10,7 @@ export class SongServiceService {
 
   public songs: Songs[];
 
-  // public API : string ='http://localhost:8080/';
-
-  // public API : string ='http://localhost:3000/songs';
   API = 'http://localhost:8080/getsongs';
-
 
   constructor(private http : HttpClient) { }
 
@@ -35,12 +30,4 @@ export class SongServiceService {
     return this.http.delete<Songs>(`${this.API}/${id}`);
   }
 
-  // addSong2(song:Song2):Observable<Song2>{
-  //   return this.http.post<Song2>(`${this.API}/createSong`, song);
-  // }
-
-  // editSong2(song:Song2):Observable<Song2>{
-  //   return this.http.put<Song2>(`${this.API}/editSong`,song);
-
-  // }
 }

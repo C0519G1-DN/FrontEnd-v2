@@ -32,8 +32,8 @@ import { MyContributionComponent } from './components/layout/my-contribution/my-
 import { SongCellComponent } from './components/song/song-cell/song-cell.component';
 import { JwtInterceptorService } from './service/jwt-interceptor.service';
 import { LoginComponent } from './components/feature/login/login.component';
-import { SongAddComponent } from './components/song/song-add/song-add.component';
-import { SongEditComponent } from './components/song/song-edit/song-edit.component';
+// import { SongAddComponent } from './components/song/song-add/song-add.component';
+// import { SongEditComponent } from './components/song/song-edit/song-edit.component';
 
 import { SocialLoginModule, AuthServiceConfig, FacebookLoginProvider } from "angular-6-social-login";
 import { SongCellIPComponent } from './components/song/song-cell-i-p/song-cell-i-p.component';
@@ -85,8 +85,8 @@ import { PlaylistEditComponent } from './components/playlist/playlist-edit/playl
     SongCellComponent,
     LoginComponent,
 
-    SongAddComponent,
-    SongEditComponent
+    // SongAddComponent,
+    // SongEditComponent,
 
 
     SongCellIPComponent,

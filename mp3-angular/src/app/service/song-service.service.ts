@@ -10,15 +10,12 @@ export class SongServiceService {
 
   public songs: Songs[];
 
-  public API : string ='http://localhost:8080/';
-
-  URL = 'http://localhost:8080/getsongs';
-
+  API = 'http://localhost:8080/getsongs';
 
   constructor(private http : HttpClient) { }
 
   getAllSong(): Observable<Songs[]>{
-    return this.http.get<Songs[]>(`${this.URL}`);
+    return this.http.get<Songs[]>(`${this.API}`);
   }
   getSong(id: number) : Observable<Songs>{
     return this.http.get<Songs>(`${this.API}/${id}`);
@@ -32,8 +29,5 @@ export class SongServiceService {
   deleteSong(id: number): Observable<Songs>{
     return this.http.delete<Songs>(`${this.API}/${id}`);
   }
-
- 
-
 
 }

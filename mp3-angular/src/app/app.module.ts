@@ -33,7 +33,6 @@ import { SongCellComponent } from './components/song/song-cell/song-cell.compone
 import { JwtInterceptorService } from './service/jwt-interceptor.service';
 import { LoginComponent } from './components/feature/login/login.component';
 
-
 import { SocialLoginModule, AuthServiceConfig, FacebookLoginProvider } from "angular-6-social-login";
 import { SongCellIPComponent } from './components/song/song-cell-i-p/song-cell-i-p.component';
 import { PlaylistAddSongComponent } from './components/playlist/playlist-add-song/playlist-add-song.component';
@@ -54,7 +53,7 @@ export function getAuthServiceConfigs() {
 
 import { PlaylistEditComponent } from './components/playlist/playlist-edit/playlist-edit.component';
 import { SingerListComponent } from './components/singer/singer-list/singer-list.component';
-// import { PlaylistInfoComponent } from './components/playlist/playlist-info/playlist-info.component';
+
 
 
 @NgModule({
@@ -86,6 +85,7 @@ import { SingerListComponent } from './components/singer/singer-list/singer-list
     LoginComponent,
 
 
+
     SongCellIPComponent,
     PlaylistAddSongComponent,
     SongFilterPipe,
@@ -93,7 +93,7 @@ import { SingerListComponent } from './components/singer/singer-list/singer-list
     PlaylistEditComponent,
 
     SingerListComponent,
-    // PlaylistInfoComponent
+
 
 
   ],

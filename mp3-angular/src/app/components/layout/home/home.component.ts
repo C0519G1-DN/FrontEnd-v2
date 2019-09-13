@@ -7,6 +7,7 @@ import { PlaylistServiceService } from 'src/app/service/playlist-service.service
 import { Subscription } from 'rxjs';
 import { JwtStorageService } from 'src/app/service/jwt-storage.service';
 import { FeatureService } from 'src/app/service/feature.service';
+import { UploadSongService } from 'src/app/service/upload-song.service';
 
 @Component({
   selector: 'app-home',
@@ -24,6 +25,7 @@ export class HomeComponent implements OnInit {
   constructor(
 
     private songService: SongServiceService,
+    private uploadSong: UploadSongService,
     public playService: PlaylistServiceService,
     public routerService: Router,
     public routerActivatedService: ActivatedRoute,
@@ -36,12 +38,15 @@ export class HomeComponent implements OnInit {
 
   ngOnInit() {
     this.viewListPlaylist();
-    // this.subscription = this.songService.getAllSong().subscribe(data => {
-    //   this.songs = data;
-    // })
-    // this.subscriptionplaylist = this.playService.getAllPlaylist().subscribe(data => {
-    //   this.playlist = data;
-    // })
+    this.viewListSong();
+    
+  }
+
+  viewListSong(){
+    this.uploadSong.getAllSong().subscribe((data)=>{
+      console.log(data);
+      this.songs = data;
+    })
   }
 
   viewListPlaylist() {

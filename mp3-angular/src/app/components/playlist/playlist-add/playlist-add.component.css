@@ -16,3 +16,11 @@
 body {
     text-align: center;
 }
+
+
+.wraper{
+    font-weight: bolder;
+    border-radius: 50px 50px;
+    background: aliceblue;
+    margin: 20px auto;
+}

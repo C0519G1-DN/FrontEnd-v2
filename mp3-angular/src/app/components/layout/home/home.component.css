@@ -48,7 +48,22 @@ h4 {
     background-color: #EA967B; 
     min-height: 700px;
 }
-
+.wrapped2{
+    border: 1px blue solid;
+    border-radius: 50px 50px;
+    background-color: antiquewhite; 
+    font-family: 'Times New Roman', Times, serif; 
+    font-weight: bold;
+    /* margin-left: -40px;  */
+    /* list-style-type: none; */
+    
+}
+li {
+    list-style: none;
+    padding: 10px;
+    width: 300px;
+    text-align: center;
+}
 .carousel-inner>.item>a>img,
 .carousel-inner>.item>img,
 .img-responsive,

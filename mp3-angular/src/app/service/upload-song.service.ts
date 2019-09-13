@@ -11,7 +11,7 @@ const httpOptions = {
   providedIn: 'root'
 })
 export class UploadSongService {
-  private URL = "http://localhost:8080"
+  private URL = "http://localhost:8080";
   constructor(private http: HttpClient) { }
 
   getAllSong():Observable<Songs[]>{

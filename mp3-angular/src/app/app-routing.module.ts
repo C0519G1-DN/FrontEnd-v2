@@ -81,11 +81,6 @@ const routes: Routes = [
     component: SongLikeComponent,
   },
   {
-    path: 'song-edit',
-    component: SongLikeComponent,
-  },
-
-  {
     path: 'song-views',
     component: SongViewsComponent,
   },
@@ -104,6 +99,10 @@ const routes: Routes = [
   {
     path: 'singer-infor',
     component: SingerInformationComponent,
+  },
+  {
+    path: 'singer-list',
+    component: SingerListComponent,
   },
   {
     path: 'song-edit',

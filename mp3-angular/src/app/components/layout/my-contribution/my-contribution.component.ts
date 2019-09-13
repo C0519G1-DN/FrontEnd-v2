@@ -8,6 +8,7 @@ import { SongServiceService } from 'src/app/service/song-service.service';
 import { PlaylistServiceService } from 'src/app/service/playlist-service.service';
 import { Playlists } from 'src/app/model/playlist/playlists';
 import { JwtStorageService } from 'src/app/service/jwt-storage.service';
+import { UploadSongService } from 'src/app/service/upload-song.service';
 
 @Component({
   selector: 'app-my-contribution',
@@ -24,6 +25,7 @@ export class MyContributionComponent implements OnInit {
 
   constructor(
     public songService: SongServiceService,
+    public uploadSong : UploadSongService,
     public routerService: Router,
     public routerActivatedService: ActivatedRoute,
     public singerService: SinggerServiceService,
@@ -34,12 +36,14 @@ export class MyContributionComponent implements OnInit {
 
     ngOnInit() {
       this.viewListPlaylist();
-      // this.subscription = this.songService.getAllSong().subscribe(data => {
-      //   this.songs = data;
-      // })
-      // this.subscriptionSingger = this.singerService.getAllArtist().subscribe(data => {
-      //   this.singger = data;
-      // })
+      this.viewListSong();
+    }
+
+    viewListSong(){
+      this.uploadSong.getAllSong().subscribe((data)=>{
+        console.log(data);
+        this.songs = data;
+      })
     }
 
     viewListPlaylist() {
@@ -47,10 +51,16 @@ export class MyContributionComponent implements OnInit {
         this.playlists = data;
       })
     }
+
     addSong(id: number){
       const a= String(id);
       this.jwtStorageService.savePlaylist(a);
       this.routerService.navigate(['/playlist-edit']);
+    }
+    editSong(id: number){
+      const  myId = String(id);
+      this.jwtStorageService.saveSong(myId);
+      this.routerService.navigate(['/song-edit']);
     }
     ngOnDestroy() {
       if (this.subscription) {

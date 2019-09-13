@@ -31,6 +31,7 @@ export class SingerInformationComponent implements OnInit {
   }
 
   delete(){
+    if(confirm("Xóa nhé")){
     this.activeRouterService.params.subscribe((pama:Params)=>{
       let id = pama.id;
       this.singerService.deleteSinger(id).subscribe(()=>{
@@ -38,4 +39,5 @@ export class SingerInformationComponent implements OnInit {
       })
     })
   }
+}
 }

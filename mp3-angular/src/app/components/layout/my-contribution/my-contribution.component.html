@@ -31,6 +31,7 @@
                 <div class="top">
 
                     <ul>
+
                         <li class="cursor" *ngFor="let playlist of playlists" (click)="addSong(playlist.id)"
                             routerLinkActive="router-link-active">
                             <p>Name Playlist: {{playlist.name}}</p>

@@ -80,6 +80,11 @@ const routes: Routes = [
     component: SongLikeComponent,
   },
   {
+    path: 'song-edit',
+    component: SongLikeComponent,
+  },
+
+  {
     path: 'song-views',
     component: SongViewsComponent,
   },

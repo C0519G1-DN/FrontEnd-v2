@@ -41,14 +41,6 @@ export class JwtStorageService {
     return sessionStorage.getItem(SONG_KEY)
   }
 
-  public saveSong(id: string){
-    window.sessionStorage.removeItem(SONG_KEY);
-    window.sessionStorage.setItem(SONG_KEY, id);
-  }
-  public getSong(): string{
-    return sessionStorage.getItem(PLAYLIST_KEY)
-  }
-
   public getID(): string {
     return localStorage.getItem(ID_KEY);
   }

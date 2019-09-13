@@ -62,7 +62,7 @@ export class SongUploadComponent implements OnInit {
           this.upsongForm.get('img_song').setValue('');
         }
         else {
-          this.router.navigate(['/']);
+          this.router.navigate(['/my-contribution']);
         }
         console.log(next);
       },

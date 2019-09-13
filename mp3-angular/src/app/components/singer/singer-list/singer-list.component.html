@@ -1,0 +1,15 @@
+<div class="container">
+    <div class="aaa">
+        <div class="row">
+            <div class="col-sm-3" *ngFor="let singer of singers">
+                <div class=" z-card-item" style="width: 10rem;height: 15rem;">
+                    <img [src]="singer.link_img_singer" class="rounded-circle" style="width:150px; height:150px"
+                        alt="...">
+                    <div class="card-body text-center">
+                        <a class="card-title" [routerLink]="['/singer-info',singer.id]">{{singer.name}}</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

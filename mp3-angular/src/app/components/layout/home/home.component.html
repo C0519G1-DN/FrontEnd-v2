@@ -69,13 +69,12 @@
 
     <div class="content">
         <h3>New Playlist</h3>
-
         <div class="top">
-            <ol>
-                <li class="cursor" *ngFor="let playlist of playlists" >
-                    <p>{{playlist.name}}</p>
+            <ul>
+                <li class="cursor wrapped2" *ngFor="let playlist of playlists">
+                    {{playlist.name}}
                 </li>
-            </ol>
+            </ul>
         </div>
     </div>
 

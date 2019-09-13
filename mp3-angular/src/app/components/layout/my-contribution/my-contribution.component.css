@@ -1,3 +1,22 @@
 .cursor{
     cursor: pointer;
 }
+.wrapped2{
+    border: 1px blue solid;
+    border-radius: 50px 50px;
+    background-color: antiquewhite; 
+    font-family: 'Times New Roman', Times, serif; 
+    font-weight: bold;
+    padding: 10px;
+    text-align: center;
+    margin: 5px;
+    margin-left: -50px;
+    width: 300px; 
+}
+ul {
+    padding: 0px;
+}
+li {
+    list-style: none;
+    font-size: 20px;
+}

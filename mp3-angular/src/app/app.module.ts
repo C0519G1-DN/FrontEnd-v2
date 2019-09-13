@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { FormsModule,ReactiveFormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { UserInformationComponent } from './components/user/user-information/user-information.component';
@@ -40,7 +40,7 @@ import { SongCellIPComponent } from './components/song/song-cell-i-p/song-cell-i
 import { PlaylistAddSongComponent } from './components/playlist/playlist-add-song/playlist-add-song.component';
 import { SongFilterPipe } from './model/song/songFilterPipe';
 
-// Configs 
+//Configs
 export function getAuthServiceConfigs() {
   let config = new AuthServiceConfig(
     [
@@ -54,6 +54,8 @@ export function getAuthServiceConfigs() {
 }
 
 import { PlaylistEditComponent } from './components/playlist/playlist-edit/playlist-edit.component';
+import { SingerListComponent } from './components/singer/singer-list/singer-list.component';
+
 import { SongEditComponent } from './components/song/song-edit/song-edit.component';
 // import { PlaylistInfoComponent } from './components/playlist/playlist-info/playlist-info.component';
 
@@ -86,13 +88,16 @@ import { SongEditComponent } from './components/song/song-edit/song-edit.compone
     SongCellComponent,
     LoginComponent,
 
-    // SongAddComponent,
-    // SongEditComponent,
+
+
     SongCellIPComponent,
     PlaylistAddSongComponent,
     SongFilterPipe,
 
     PlaylistEditComponent,
+
+    SingerListComponent,
+
 
     SongEditComponent,
   ],

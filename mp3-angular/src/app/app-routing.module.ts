@@ -20,6 +20,8 @@ import { ForgetPassComponent } from './components/feature/forget-pass/forget-pas
 
 
 import { PlaylistEditComponent } from './components/playlist/playlist-edit/playlist-edit.component';
+import { SongEditComponent } from './components/song/song-edit/song-edit.component';
+// import { PlaylistInfoComponent } from './components/playlist/playlist-info/playlist-info.component';
 import { SingerListComponent } from './components/singer/singer-list/singer-list.component';
 
 
@@ -34,10 +36,10 @@ const routes: Routes = [
     path: 'register',
     component: UserRegisterComponent,
   },
-  {
-    path:'forget-pass',
-    component: ForgetPassComponent,
-  },
+  // {
+  //   path:'forget-pass',
+  //   component: ForgetPassComponent,
+  // },
   {
     path: 'update',
     component: UserUpdateComponent,
@@ -62,7 +64,6 @@ const routes: Routes = [
     path: 'playlist-views',
     component: PlaylistViewsComponent,
   },
-
   {
     path: 'playlist-add',
     component: PlaylistAddComponent,
@@ -96,16 +97,13 @@ const routes: Routes = [
     component: SingerAddComponent,
   },
   {
-    path: 'singer-list',
-    component: SingerListComponent,
+    path: 'singer-infor',
+    component: SingerInformationComponent,
   },
-
   {
-    path:'singer-info/:id',
-    component:SingerInformationComponent,
+    path: 'song-edit',
+    component: SongEditComponent
   }
-
-
 ];
 
 @NgModule({

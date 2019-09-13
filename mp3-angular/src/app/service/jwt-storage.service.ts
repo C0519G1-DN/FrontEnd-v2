@@ -33,6 +33,13 @@ export class JwtStorageService {
   public getPlaylist(): string{
     return sessionStorage.getItem(PLAYLIST_KEY)
   }
+  public saveSong(id: string){
+    window.sessionStorage.removeItem(SONG_KEY);
+    window.sessionStorage.setItem(SONG_KEY, id);
+  }
+  public getSong(): string{
+    return sessionStorage.getItem(SONG_KEY)
+  }
 
   public saveSong(id: string){
     window.sessionStorage.removeItem(SONG_KEY);

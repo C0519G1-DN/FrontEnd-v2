@@ -60,7 +60,7 @@ export class MyContributionComponent implements OnInit {
     editSong(id: number){
       const  myId = String(id);
       this.jwtStorageService.saveSong(myId);
-      this.routerService.navigate(['/song-edit']);
+      this.routerService.navigate(['/my-contribution']);
     }
     ngOnDestroy() {
       if (this.subscription) {

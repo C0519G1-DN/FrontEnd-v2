@@ -41,25 +41,29 @@
 
     <div class="content">
         <h3>Top Bài Hát Like Nhiều</h3>
-        <div class="top" *ngFor="let song of songs">
+        <!-- <div class="top" *ngFor="let song of songs">
             <img src="{{ song.avatar_song }}" alt="{{ song.name_song }}" width="80%" height="200px">
             <h4>{{ song.name_song }}</h4>
             <p>{{ song.name_artist }}</p>
-        </div>
+        </div> -->
     </div>
     <div class="content">
         <h3>Top Playlist Like Nhiều</h3>
-        <div class="top" *ngFor="let iterm of playlist">
+        <!-- <div class="top" *ngFor="let iterm of playlist">
             <h4>{{ iterm.id }} . {{ iterm.name_playlist }}</h4>
-        </div>
+        </div> -->
 
     </div>
+
     <div class="content">
         <h3>Bài Hát Mới</h3>
-        <div class="top" *ngFor="let song of songs">
-            <img src="{{ song.avatar_song }}" alt="{{ song.name_song }}" width="80%" height="200px">
-            <h4>{{ song.name_song }}</h4>
-            <p>{{ song.name_artist }}</p>
+        <div class="top">
+            <ol>
+                <li class="cursor" *ngFor="let item of songs" [routerLink]="['/song-edit',item.id]"
+                    routerLinkActive="router-link-active">
+                    <p>Name Song: {{item.name}}</p>
+                </li>
+            </ol>
         </div>
     </div>
 
@@ -75,13 +79,3 @@
     </div>
 
 </div>
-<!-- <div class="container">
-    New <app-playlist-cell [routerLink]="['/playlist-listening']"></app-playlist-cell>
-    New <app-playlist-cell [routerLink]="['/playlist-listening']"></app-playlist-cell>
-    New <app-song-cell [routerLink]="['/song-listening']"></app-song-cell>
-    New <app-song-cell [routerLink]="['/song-listening']"></app-song-cell>
-    New <app-song-cell [routerLink]="['/song-listening']"></app-song-cell>
-    New <app-song-cell [routerLink]="['/song-listening']"></app-song-cell>
-    New <app-song-cell [routerLink]="['/song-listening']"></app-song-cell>
-    New <app-song-cell [routerLink]="['/song-listening']"></app-song-cell>
-</div> -->

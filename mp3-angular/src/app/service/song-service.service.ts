@@ -12,7 +12,7 @@ export class SongServiceService {
   public songs: Songs[];
 
   API = 'http://localhost:8080/getsongs';
-  public API : string ='http://localhost:8080/';
+ // public API : string ='http://localhost:8080/';
 
   URL = 'http://localhost:8080/getsongs';
 

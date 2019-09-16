@@ -31,8 +31,7 @@ export class SinggerServiceService {
   editSinger(artist:Singgers):Observable<Singgers>{
     return this.http.put<Singgers>(`${this.API}/${artist.id}`,artist)
   }
-  deleteSinger(id: number){
-    return this.http.delete(`${this.API}/delete/${id}`);
+  deleteSinger(id:number){
+    return this.http.put(`${this.API}/deleteSinger/${id}`,id);
   }
-  
 }

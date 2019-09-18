@@ -97,7 +97,7 @@ const routes: Routes = [
     component: SingerAddComponent,
   },
   {
-    path: 'singer-infor',
+    path: 'singer-infor/:id',
     component: SingerInformationComponent,
   },
   {

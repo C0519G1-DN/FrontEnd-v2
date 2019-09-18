@@ -100,6 +100,8 @@ import { SongEditComponent } from './components/song/song-edit/song-edit.compone
 
 
     SongEditComponent,
+
+
   ],
   imports: [
     BrowserModule,

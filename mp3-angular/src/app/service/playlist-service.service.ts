@@ -15,6 +15,7 @@ export class PlaylistServiceService {
   addsong(value){
     return this.http.post(`${this.URL}/addsong`, value)
   }
+  
   getAllPlaylist() {
     return this.http.get(`${this.URL}`);
   }
@@ -24,7 +25,7 @@ export class PlaylistServiceService {
   }
 
   updatePlaylist(playlist: Playlists) {
-    return this.http.put(`${this.URL}/updateplaylist/${playlist.id}`, playlist);
+    return this.http.put(`${this.URL}/updateplaylist`, playlist);
   }
 
   createPlaylist(playlist: Playlists) {
@@ -32,6 +33,10 @@ export class PlaylistServiceService {
   }
 
   deletePlaylist(id: number) {
-    return this.http.delete(`${this.URL}/deleteplaylist/${id}`);
+    return this.http.put(`${this.URL}/deleteplaylist`,id);
+  }
+
+  getSongOfPlaylist(id: number){
+    return this.http.post(`${this.URL}/songOfPlaylist`,id);
   }
 }

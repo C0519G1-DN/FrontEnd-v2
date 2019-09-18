@@ -1,9 +1,9 @@
-<!-- <div class="container">
+<div class="container">
     <div class="col-xs-5 col-sm-5 col-md-5 col-lg-5 container">
         <div class="panel panel-primary">
             <div class="panel-heading">
                 <br><br>
-                <h3 class="panel-title">Edit PlayList Form </h3>
+                <h3 class="panel-title">EDIT PLAYLIST FORM </h3>
                 <br>
             </div>
             <div class="list">
@@ -28,5 +28,29 @@
             </div>
         </div>
     </div>
-</div> -->
-<app-playlist-add-song></app-playlist-add-song>
+</div>
+
+<hr>
+
+<div class="container">
+    <br>
+    <h3 class="wrapped">LIST SONGS IN THIS PLAYLIST</h3>
+    <br>
+    <div class="row ">
+        <div *ngFor="let song of songsOfPlaylist" [routerLink]="['/song-listening']"
+            class="col-lg-3 col-md-3 col-sm-3 tag">
+            <div class="text-center thumb justify-content-center">
+                <img src={{song.link_img_song}} class="rounded-circle">
+                <div class="text">
+                    <h3>{{song.name}}</h3>
+                </div>
+            </div>
+        </div>
+    </div>
+    <br>
+    <button class="btn btn-primary wrapped" type="button" [routerLink]="['/playlist-addsong']"
+        routerLinkActive="router-link-active">Add Song</button>
+</div>
+
+<!-- <hr>
+<app-playlist-add-song></app-playlist-add-song> -->

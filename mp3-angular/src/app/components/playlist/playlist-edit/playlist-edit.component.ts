@@ -3,6 +3,7 @@ import { FormGroup, FormBuilder } from '@angular/forms';
 import { Playlists } from 'src/app/model/playlist/playlists';
 import { ActivatedRoute, Router } from '@angular/router';
 import { PlaylistServiceService } from 'src/app/service/playlist-service.service';
+import { JwtStorageService } from 'src/app/service/jwt-storage.service';
 
 @Component({
   selector: 'app-playlist-edit',
@@ -12,39 +13,32 @@ import { PlaylistServiceService } from 'src/app/service/playlist-service.service
 export class PlaylistEditComponent implements OnInit {
 
   private infoPlaylist: FormGroup;
-  private newPlaylist: Playlists;
+  private songsOfPlaylist : any;
+  private idPlaylist = parseInt(this.jwtStorageService.getPlaylist());
+  
 
   constructor(
     private playlistService: PlaylistServiceService,
     private formBuilder: FormBuilder,
     private activatedRoute: ActivatedRoute,
-    private router: Router
+    private router: Router,
+    private jwtStorageService: JwtStorageService,
   ) { }
 
   ngOnInit() {
     this.infoPlaylist = this.formBuilder.group({
-      id: [''],
+      id: [this.idPlaylist],
       name: [''],
       des: [''],
-      username_create: [''],
-      createDay: [''],
-      delected: [''],
-      songs:[''],
-      
+      songs: [''],
     })
 
-    this.loadData();
+    this.playlistService.getPlaylistById(this.idPlaylist).subscribe(data => {
+      this.infoPlaylist.patchValue(data);
+    })
     console.log(this.infoPlaylist);
-  }
-
-  loadData() {
-    this.activatedRoute.params.subscribe(ID => {
-      console.log(ID);
-      let id = ID.id;
-      this.playlistService.getPlaylistById(id).subscribe(data => {
-        this.infoPlaylist.patchValue(data);
-      })
-    })
+    this.loadSongOfPlaylist(this.idPlaylist);
+    console.log(this.idPlaylist);
   }
 
   editPlaylist() {
@@ -52,21 +46,24 @@ export class PlaylistEditComponent implements OnInit {
     this.playlistService.updatePlaylist(value).subscribe(data => {
       console.log(data);
       alert("Edited Successfully");
-      // this.router.navigate(['/my-contribution']);
+      this.router.navigate(['/my-contribution']);
     })
   }
 
   deletePlaylist() {
     if (confirm("Do you really want to delete this playlist ? ")) {
-      this.activatedRoute.params.subscribe(ID => {
-        console.log(ID);
-        let id = ID.id;
-        // const { value } = this.infoPlaylist;
-        this.playlistService.deletePlaylist(id).subscribe(data => {
-          alert("Deleted Sucessfully");
-          this.router.navigate(['/my-contribution']);
-        })
+      this.playlistService.deletePlaylist(this.idPlaylist).subscribe(data => {
+        alert("Deleted Sucessfully");
+        this.router.navigate(['/my-contribution']);
       })
     }
   }
+
+  loadSongOfPlaylist(id: number){
+    this.playlistService.getSongOfPlaylist(id).subscribe(data => {
+      console.log(data);
+      this.songsOfPlaylist = data;
+    })
+  }
+  
 }

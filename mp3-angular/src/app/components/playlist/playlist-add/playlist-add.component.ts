@@ -13,13 +13,14 @@ import { JwtStorageService } from 'src/app/service/jwt-storage.service';
 })
 export class PlaylistAddComponent implements OnInit{
 
-  // public playlist: Playlists;
-  // public subscription:Subscription;
   newPlaylistForm: FormGroup;
 
-  constructor(private playlistService : PlaylistServiceService,
+  constructor(
+    private playlistService : PlaylistServiceService,
     private formBuilder : FormBuilder,
-    private router : Router, private jwtStorageService: JwtStorageService) { }
+    private router : Router, 
+    private jwtStorageService: JwtStorageService
+    ) { }
 
   ngOnInit() {
     const userId = parseInt(this.jwtStorageService.getID())
@@ -27,16 +28,9 @@ export class PlaylistAddComponent implements OnInit{
       id: [''],
       name: [''],
       des: [''],
-      username_create: [userId],
-      // day_create : ['']
+      username_create: [userId]
     })
   }
-
-  // ngOnDestroy() {
-  //   if (this.subscription) {
-  //     this.subscription.unsubscribe();
-  //   }
-  // }
 
   createPlaylist(){
     const{value} = this.newPlaylistForm;

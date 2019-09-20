@@ -32,10 +32,13 @@ export class SinggerServiceService {
   editSinger(artist: Singgers): Observable<Singgers> {
     return this.http.put<Singgers>(`${this.API}/${artist.id}`, artist);
   }
-  deleteSinger(id: number) {
-    return this.http.delete(`${this.API}/delete/${id}`);
-  }
+
   searchSinger(nameSinger: string ): Observable<SearchSinger> {
     return this.http.post<SearchSinger>(`${this.API}/searchSinger`, {nameSinger});
   }
+
+  deleteSinger(id:number){
+    return this.http.put(`${this.API}/deleteSinger/${id}`,id);
+  }
+
 }

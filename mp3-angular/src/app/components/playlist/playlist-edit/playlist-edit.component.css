@@ -37,3 +37,7 @@ img{
 .text{
     padding: 10px
 }
+.edittext{
+  align-content: center;
+  color: blue;
+}

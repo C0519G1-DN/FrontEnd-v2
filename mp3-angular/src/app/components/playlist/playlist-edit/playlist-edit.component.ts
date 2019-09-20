@@ -4,6 +4,7 @@ import { Playlists } from 'src/app/model/playlist/playlists';
 import { ActivatedRoute, Router } from '@angular/router';
 import { PlaylistServiceService } from 'src/app/service/playlist-service.service';
 import { JwtStorageService } from 'src/app/service/jwt-storage.service';
+import { ReqAddSong } from 'src/app/model/playlist/reqAddSong';
 
 @Component({
   selector: 'app-playlist-edit',
@@ -13,16 +14,16 @@ import { JwtStorageService } from 'src/app/service/jwt-storage.service';
 export class PlaylistEditComponent implements OnInit {
 
   private infoPlaylist: FormGroup;
-  private songsOfPlaylist : any;
+  private songsOfPlaylist: any;
   private idPlaylist = parseInt(this.jwtStorageService.getPlaylist());
-  
+
 
   constructor(
     private playlistService: PlaylistServiceService,
     private formBuilder: FormBuilder,
     private activatedRoute: ActivatedRoute,
     private router: Router,
-    private jwtStorageService: JwtStorageService,
+    private jwtStorageService: JwtStorageService
   ) { }
 
   ngOnInit() {
@@ -40,6 +41,7 @@ export class PlaylistEditComponent implements OnInit {
     this.loadSongOfPlaylist(this.idPlaylist);
     console.log(this.idPlaylist);
   }
+
 
   editPlaylist() {
     const { value } = this.infoPlaylist;
@@ -59,11 +61,24 @@ export class PlaylistEditComponent implements OnInit {
     }
   }
 
-  loadSongOfPlaylist(id: number){
+  deleteSongInPlaylist(idSong: number) {
+    if (confirm("Do you want to delete this song?")) {
+      var idPlaylist = parseInt(this.jwtStorageService.getPlaylist());
+      console.log("SOng" + idSong);
+      console.log(idPlaylist);
+      var reqAddSong = new ReqAddSong(idPlaylist, idSong);
+      this.playlistService.deletesong(reqAddSong).subscribe(data => {
+        alert("Delete sucessfully !");
+        location.reload();
+      })
+    }
+  }
+
+  loadSongOfPlaylist(id: number) {
     this.playlistService.getSongOfPlaylist(id).subscribe(data => {
       console.log(data);
       this.songsOfPlaylist = data;
     })
   }
-  
+
 }

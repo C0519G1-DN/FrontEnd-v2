@@ -8,10 +8,10 @@ import { PlaylistServiceService } from 'src/app/service/playlist-service.service
 })
 export class PlaylistViewsComponent implements OnInit {
 
-  constructor(private playlistService:PlaylistServiceService) { }
-a: any
+  constructor(private playlistService: PlaylistServiceService) { }
+  a: any
   ngOnInit() {
-this.playlistService.getAllPlaylist().subscribe(next => this.a=next)
+    this.playlistService.getAllPlaylist().subscribe(next => this.a = next)
   }
 
 }

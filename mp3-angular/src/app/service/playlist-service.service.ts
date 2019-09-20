@@ -12,9 +12,6 @@ export class PlaylistServiceService {
   private URL = "http://localhost:8080/playlists"
 
   constructor(private http: HttpClient) { }
-  addsong(value){
-    return this.http.post(`${this.URL}/addsong`, value)
-  }
   
   getAllPlaylist() {
     return this.http.get(`${this.URL}`);
@@ -38,5 +35,13 @@ export class PlaylistServiceService {
 
   getSongOfPlaylist(id: number){
     return this.http.post(`${this.URL}/songOfPlaylist`,id);
+  }
+
+  addsong(value){
+    return this.http.post(`${this.URL}/addsong`, value)
+  }
+
+  deletesong(value){
+    return this.http.post(`${this.URL}/deletesonginplaylist`,value);
   }
 }

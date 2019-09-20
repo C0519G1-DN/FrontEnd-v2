@@ -16,7 +16,8 @@ export class SingerListComponent implements OnInit {
   ngOnInit() {
     this.singerService.getAllSinger().subscribe(data => {
       this.singers = data;
-    })
+      console.log(this.singers);
+    });
 
   }
 

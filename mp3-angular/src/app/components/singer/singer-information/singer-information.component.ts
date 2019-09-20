@@ -37,8 +37,8 @@ export class SingerInformationComponent implements OnInit {
       this.singerService.deleteSinger(id).subscribe(next=>{
         console.log(next);
         this.router.navigate(['/singer-list'])
-      })
-    })
+      });
+    });
   }
 }
 }

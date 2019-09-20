@@ -11,27 +11,39 @@
                     <form [formGroup]="informationFormSong" (submit)="editSong()">
                         <div class="form-group">
                             <label for="name">Name Song</label>
-                            <input formControlName="name" type="text" class="form-control" name="name"
-                                placeholder="Name Song">
+                            <input formControlName="name" type="text" class="form-control" name="name" placeholder="Name Song">
                         </div>
 
                         <div class="form-group">
                             <label for="author">Author</label>
-                            <input formControlName="author" type="text" class="form-control" name="author"
-                                placeholder="Author">
+                            <input formControlName="author" type="text" class="form-control" name="author" placeholder="Author">
                         </div>
 
                         <div class="form-group">
                             <label for="des">Description</label>
-                            <input formControlName="des" type="text" class="form-control" name="des"
-                                placeholder="Description">
+                            <input formControlName="des" type="text" class="form-control" name="des" placeholder="Description">
                         </div>
+
+
 
                         <button type="submit" class="btn btn-primary">Update</button>
 
                         <button class="btn btn-primary" type="button" (click)="deleteSong()">Delete
                             Song</button>
                     </form>
+                    <div>
+                        <label for="des">Singer</label>
+                        <div>
+                            <input type="text" class="form-control" name="singer" [(ngModel)]="search" placeholder="Description">
+                        </div>
+                        <div>
+                            <button class="btn btn-primary" type="button" (click)="searchSinger()">Search</button>
+                            <div *ngFor="let singer of listSinger">
+                                <div class="ticket" (click)="addSinger(singer.id)"> {{singer.name}} </div>
+                            </div>
+                            <!-- <button class="btn btn-primary" type="button" (click)="addSinger()">AddSinger</button> -->
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>

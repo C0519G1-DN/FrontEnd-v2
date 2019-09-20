@@ -16,7 +16,7 @@ export class SongFilterPipe implements PipeTransform {
             // if(!songs || !search){
             //     return songs
             // }
-            // return songs.filter(song => 
+            // return songs.filter(song =>
             //     song.name.toLowerCase().indexOf(search.toLowerCase()) !== -1);
     }
 }

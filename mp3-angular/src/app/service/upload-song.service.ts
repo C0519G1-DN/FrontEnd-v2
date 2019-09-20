@@ -1,36 +1,36 @@
 import { Injectable } from '@angular/core';
-import { HttpClient,HttpHeaders  } from '@angular/common/http';
+import { HttpClient, HttpHeaders  } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { Songs } from '../model/song/songs';
 const httpOptions = {
   headers: new HttpHeaders({ 'Content-Type': 'application/json' })
-  ,'Access-Control-Allow-Origin': 'http://localhost:4200'
+  , 'Access-Control-Allow-Origin': 'http://localhost:4200'
 };
 
 @Injectable({
   providedIn: 'root'
 })
 export class UploadSongService {
-  private URL = "http://localhost:8080";
+  private URL = 'http://localhost:8080';
   constructor(private http: HttpClient) { }
 
-  getAllSong():Observable<Songs[]>{
+  getAllSong(): Observable<Songs[]> {
     return this.http.get<Songs[]>(`${this.URL}/getsongs`);
   }
 
-  upSong(data): Observable<any>{
+  upSong(data): Observable<any> {
     return this.http.post(`${this.URL}/upsong`, data);
   }
 
-  getSongNew(data): Observable<any>{
+  getSongNew(data): Observable<any> {
     return this.http.get(`${this.URL}/getsongnew`, data);
   }
 
-  getSongView(data): Observable<any>{
+  getSongView(data): Observable<any> {
     return this.http.get(`${this.URL}/getsongview`, data);
   }
 
-  getSongLike(data): Observable<any>{
+  getSongLike(data): Observable<any> {
     return this.http.get(`${this.URL}/getsonglike`, data);
   }
 
@@ -48,5 +48,9 @@ export class UploadSongService {
 
   deleteSong(id: number) {
     return this.http.delete(`${this.URL}/deleteSong/${id}`);
+  }
+
+  addSingerToSong(value) {
+    return this.http.post(`${this.URL}/addSingerToSong`, value);
   }
 }

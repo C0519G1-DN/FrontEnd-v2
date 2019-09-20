@@ -40,6 +40,7 @@ export class MyContributionComponent implements OnInit {
   }
 
 
+
   viewListPlaylist() {
     this.playlistService.getAllPlaylist().subscribe((data: Playlists[]) => {
       this.playlists = data;

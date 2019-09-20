@@ -31,54 +31,44 @@ export class MyContributionComponent implements OnInit {
     public singerService: SinggerServiceService,
     private playlistService: PlaylistServiceService,
     private jwtStorageService: JwtStorageService,
-  ) { }
+    ) { }
 
 
-  ngOnInit() {
-    this.viewListPlaylist();
-    this.viewListSong();
-  }
-
-
-
-  viewListPlaylist() {
-    this.playlistService.getAllPlaylist().subscribe((data: Playlists[]) => {
-      this.playlists = data;
-    })
-  }
-  editPlaylist(idPlaylist: number) {
-    const idPlaylistStr = String(idPlaylist);
-    console.log("number" + idPlaylist);
-    this.jwtStorageService.savePlaylist(idPlaylistStr);
-    console.log("string" + idPlaylistStr);
-    this.routerService.navigate(['/playlist-edit']);
-  }
-
-
-  viewListSong() {
-    this.uploadSong.getAllSong().subscribe((data) => {
-      console.log(data);
-      this.songs = data;
-    })
-  }
-  addSong(id: number) {
-    const a = String(id);
-    this.jwtStorageService.savePlaylist(a);
-    this.routerService.navigate(['/playlist-edit']);
-  }
-  editSong(id: number) {
-    const myId = String(id);
-    this.jwtStorageService.saveSong(myId);
-    this.routerService.navigate(['/song-edit']);
-  }
-
-  
-  ngOnDestroy() {
-    if (this.subscription) {
-      this.subscription.unsubscribe();
+    ngOnInit() {
+      this.viewListPlaylist();
+      this.viewListSong();
     }
-    if (this.subscriptionSingger) {
-      this.subscriptionSingger.unsubscribe();
+
+    viewListSong() {
+      this.uploadSong.getAllSong().subscribe((data) => {
+        console.log(data);
+        this.songs = data;
+      });
     }
-  }
+
+    viewListPlaylist() {
+      this.playlistService.getAllPlaylist().subscribe((data: Playlists[]) => {
+        this.playlists = data;
+      });
+    }
+
+    addSong(id: number) {
+      const a = String(id);
+      this.jwtStorageService.savePlaylist(a);
+      this.routerService.navigate(['/playlist-edit']);
+    }
+    editSong(id: number) {
+      const  myId = String(id);
+      this.jwtStorageService.saveSong(myId);
+      this.routerService.navigate(['/song-edit']);
+    }
+    // tslint:disable-next-line: use-lifecycle-interface
+    ngOnDestroy() {
+      if (this.subscription) {
+        this.subscription.unsubscribe();
+      }
+      if (this.subscriptionSingger) {
+        this.subscriptionSingger.unsubscribe();
+      }
+    }
 }

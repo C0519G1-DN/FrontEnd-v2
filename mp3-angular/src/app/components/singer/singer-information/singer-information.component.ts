@@ -26,17 +26,16 @@ export class SingerInformationComponent implements OnInit {
         next => {
           this.singer = next;
         }
-      )
-    })
+      );
+    });
   }
 
-  delete(){
-    if(confirm("Xóa nhé")){
-    this.activeRouterService.params.subscribe((pama:Params)=>{
+  delete() {
+    if (confirm('Xóa nhé')) {
+    this.activeRouterService.params.subscribe((pama: Params) => {
       let id = pama.id;
-      this.singerService.deleteSinger(id).subscribe(next=>{
-        console.log(next);
-        this.router.navigate(['/singer-list'])
+      this.singerService.deleteSinger(id).subscribe(() => {
+        this.router.navigate(['/singer-list']);
       });
     });
   }

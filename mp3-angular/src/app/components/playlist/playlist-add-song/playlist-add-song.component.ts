@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Songs } from 'src/app/model/song/songs'
+import { Songs } from 'src/app/model/song/songs';
 import { Router } from '@angular/router';
 import { JwtStorageService } from 'src/app/service/jwt-storage.service';
 import { PlaylistServiceService } from 'src/app/service/playlist-service.service';
@@ -13,29 +13,25 @@ import { UploadSongService } from 'src/app/service/upload-song.service';
 })
 export class PlaylistAddSongComponent implements OnInit {
   songs: Songs[];
+  search: string;
 
-
-  constructor(
-    private songService: UploadSongService, 
-    private router: Router, 
-    private jwtStorageService: JwtStorageService, 
-    private playlistService: PlaylistServiceService
-    ) { }
+  // tslint:disable-next-line: max-line-length
+  constructor(private uploadSongService: UploadSongService, private router: Router, private jwtStorageService: JwtStorageService, private playlistService: PlaylistServiceService) { }
 
   ngOnInit() {
-    this.songService.getAllSong().subscribe(next => 
-      { this.songs = next });
-
+    this.uploadSongService.getAllSong().subscribe(next => { this.songs = next; });
   }
-
   addTheSong(songId: number) {
+    // tslint:disable-next-line: radix
     const idPlaylist = parseInt(this.jwtStorageService.getPlaylist());
+    const idSong = songId;
     console.log(idPlaylist);
-    console.log(songId);
+    console.log(idSong);
 
-    const reqAddSong = new ReqAddSong(idPlaylist, songId);
+    const reqAddSong = new ReqAddSong(idPlaylist, idSong);
     console.log(reqAddSong);
     this.playlistService.addsong(reqAddSong).subscribe(
-      next => { console.log("ok") })
+      next => { console.log('ok'); });
   }
+
 }

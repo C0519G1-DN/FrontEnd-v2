@@ -11,29 +11,29 @@ export class SongServiceService {
 
   public songs: Songs[];
 
-  API = 'http://localhost:8080/getsongs';
- // public API : string ='http://localhost:8080/';
+//   API = 'http://localhost:8080/getsongs';
+//  public API : string ='http://localhost:8080/';
 
-  URL = 'http://localhost:8080/getsongs';
+  URL = 'http://localhost:8080';
 
 
-  constructor(private http : HttpClient) { }
+  constructor(private http: HttpClient) { }
 
-  getAllSong(): Observable<Songs[]>{
-    return this.http.get<Songs[]>(`${this.API}`);
-  }
-  getSong(id: number) : Observable<Songs>{
-    return this.http.get<Songs>(`${this.API}/${id}`);
-  }
-  addSong(song:Songs): Observable<Songs>{
-    return this.http.post<Songs>(`${this.API}`,song);
-  }
-  editSong(song:Songs):Observable<Songs>{
-    return this.http.put<Songs>(`${this.API}/${song.id}`,song)
-  }
-  deleteSong(id: number): Observable<Songs>{
-    return this.http.delete<Songs>(`${this.API}/${id}`);
-  }
+  // getAllSong(): Observable<Songs[]> {
+  //   return this.http.get<Songs[]>(`${this.URL}`);
+  // }
+  // getSong(id: number): Observable<Songs> {
+  //   return this.http.get<Songs>(`${this.URL}/${id}`);
+  // }
+  // addSong(song: Songs): Observable<Songs> {
+  //   return this.http.post<Songs>(`${this.URL}`, song);
+  // }
+  // editSong(song: Songs): Observable<Songs> {
+  //   return this.http.put<Songs>(`${this.URL}`, song);
+  // }
+  // deleteSong(song: Songs): Observable<Songs> {
+  //   return this.http.put<Songs>(`${this.URL}/deleteSong`, song);
+  // }
 
   // addSong2(song:Song2):Observable<Song2>{
   //   return this.http.post<Song2>(`${this.API}/createSong`, song);

@@ -1,11 +1,11 @@
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
     <div>
-        <img src="/assets/logo1.jpg" style="width:20px;height:20px" [routerLink]="['']">
+        <img src="/assets/logo1.png" style="width:20px;height:20px" [routerLink]="['']">
     </div>
     <a class="navbar-brand" [routerLink]="['']" routerLinkActive="router-link-active">HOME</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-  </button>
+      <span class="navbar-toggler-icon"></span>
+    </button>
 
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav mr-auto">
@@ -41,8 +41,8 @@
 
             <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" *ngIf="feature.isLogin() || feature.islogin">
-          {{myuser}}
-        </a>
+            {{myuser}}
+          </a>
                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                     <a class="dropdown-item" [routerLink]="['/my-profile']" routerLinkActive="router-link-active">Profile</a>
                     <a class="dropdown-item" [routerLink]="['/my-contribution']">My Contribution</a>
@@ -52,8 +52,8 @@
             </li>
             <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" *ngIf="feature.isLogin() || feature.islogin">
-            ADD
-          </a>
+              ADD
+            </a>
                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                     <a class="dropdown-item" [routerLink]="['/song-upload']" routerLinkActive="router-link-active">ADD-SONG</a>
                     <a class="dropdown-item" [routerLink]="['/playlist-add']">ADD-PLAYLIST</a>

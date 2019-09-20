@@ -24,8 +24,6 @@
                             <input formControlName="des" type="text" class="form-control" name="des" placeholder="Description">
                         </div>
 
-
-
                         <button type="submit" class="btn btn-primary">Update</button>
 
                         <button class="btn btn-primary" type="button" (click)="deleteSong()">Delete
@@ -41,7 +39,6 @@
                             <div *ngFor="let singer of listSinger">
                                 <div class="ticket" (click)="addSinger(singer.id)"> {{singer.name}} </div>
                             </div>
-                            <!-- <button class="btn btn-primary" type="button" (click)="addSinger()">AddSinger</button> -->
                         </div>
                     </div>
                 </div>

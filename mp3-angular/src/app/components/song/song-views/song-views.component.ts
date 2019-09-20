@@ -12,7 +12,6 @@ songs: any;
   constructor( private uploadSongService: UploadSongService) { }
 
   ngOnInit() {
-    this.uploadSongService.getAllSong().subscribe(next=>this.songs=next)
+    this.uploadSongService.getAllSong().subscribe(next => this.songs = next);
   }
-
 }

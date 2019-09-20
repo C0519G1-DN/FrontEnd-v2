@@ -24,18 +24,15 @@ export class SongEditComponent implements OnInit {
     private formBuilder: FormBuilder,
     private activatedRoute: ActivatedRoute,
     private router: Router) {
-
   }
 
   ngOnInit() {
-     // tslint:disable-next-line: radix
      const myID = parseInt(this.jwtStorage.getSong());
      this.informationFormSong = this.formBuilder.group({
       id: [myID],
       name: [''],
       des: [''],
       author: [''],
-      // singer: ['']
     });
      this.songService.getSongById(myID).subscribe(data => {
       this.informationFormSong.patchValue(data);
@@ -71,7 +68,6 @@ export class SongEditComponent implements OnInit {
   }
 
   addSinger(singerId) {
-    // tslint:disable-next-line: radix
     const idSong = parseInt(this.jwtStorage.getSong());
     const idSinger = singerId;
     console.log(idSong);

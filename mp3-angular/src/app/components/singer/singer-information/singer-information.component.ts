@@ -36,8 +36,8 @@ export class SingerInformationComponent implements OnInit {
       let id = pama.id;
       this.singerService.deleteSinger(id).subscribe(()=>{
         this.router.navigate(['/singer-list'])
-      })
-    })
+      });
+    });
   }
 }
 }

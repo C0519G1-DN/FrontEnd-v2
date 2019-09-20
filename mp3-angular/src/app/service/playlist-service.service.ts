@@ -9,11 +9,11 @@ import { Playlists } from '../model/playlist/playlists';
 export class PlaylistServiceService {
 
   // public playlist:PlaylistServiceService[];
-  private URL = "http://localhost:8080/playlists"
+  private URL = 'http://localhost:8080/playlists';
 
   constructor(private http: HttpClient) { }
-  addsong(value){
-    return this.http.post(`${this.URL}/addsong`, value)
+  addsong(value) {
+    return this.http.post(`${this.URL}/addsong`, value);
   }
   getAllPlaylist() {
     return this.http.get(`${this.URL}`);

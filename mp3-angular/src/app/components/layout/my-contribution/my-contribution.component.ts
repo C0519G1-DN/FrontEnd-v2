@@ -25,7 +25,7 @@ export class MyContributionComponent implements OnInit {
 
   constructor(
     public songService: SongServiceService,
-    public uploadSong : UploadSongService,
+    public uploadSong: UploadSongService,
     public routerService: Router,
     public routerActivatedService: ActivatedRoute,
     public singerService: SinggerServiceService,
@@ -39,29 +39,30 @@ export class MyContributionComponent implements OnInit {
       this.viewListSong();
     }
 
-    viewListSong(){
-      this.uploadSong.getAllSong().subscribe((data)=>{
+    viewListSong() {
+      this.uploadSong.getAllSong().subscribe((data) => {
         console.log(data);
         this.songs = data;
-      })
+      });
     }
 
     viewListPlaylist() {
       this.playlistService.getAllPlaylist().subscribe((data: Playlists[]) => {
         this.playlists = data;
-      })
+      });
     }
 
-    addSong(id: number){
-      const a= String(id);
+    addSong(id: number) {
+      const a = String(id);
       this.jwtStorageService.savePlaylist(a);
       this.routerService.navigate(['/playlist-edit']);
     }
-    editSong(id: number){
+    editSong(id: number) {
       const  myId = String(id);
       this.jwtStorageService.saveSong(myId);
       this.routerService.navigate(['/song-edit']);
     }
+    // tslint:disable-next-line: use-lifecycle-interface
     ngOnDestroy() {
       if (this.subscription) {
         this.subscription.unsubscribe();

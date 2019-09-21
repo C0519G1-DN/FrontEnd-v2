@@ -24,6 +24,7 @@ import { SongEditComponent } from './components/song/song-edit/song-edit.compone
 // import { PlaylistInfoComponent } from './components/playlist/playlist-info/playlist-info.component';
 import { SingerListComponent } from './components/singer/singer-list/singer-list.component';
 import { PlaylistAddSongComponent } from './components/playlist/playlist-add-song/playlist-add-song.component';
+import { LogoutComponent } from './components/feature/logout/logout.component';
 
 
 
@@ -32,6 +33,10 @@ const routes: Routes = [
   {
     path: '',
     component: HomeComponent,
+  },
+  {
+    path: 'logout',
+    component: LogoutComponent,
   },
   {
     path: 'register',

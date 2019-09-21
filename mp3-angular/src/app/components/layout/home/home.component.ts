@@ -39,7 +39,7 @@ export class HomeComponent implements OnInit {
   ngOnInit() {
     this.viewListPlaylist();
     this.viewListSong();
-    
+    // window.location.reload();
   }
 
   viewListSong(){

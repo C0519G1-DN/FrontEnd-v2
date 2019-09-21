@@ -21,6 +21,10 @@ export class PlaylistServiceService {
     return this.http.get(`${this.URL}/getoneplaylist/${id}`);
   }
 
+  getPlaylistByIdToListen(id: number) {
+    return this.http.get(`${this.URL}/getPlaylistToListen/${id}`);
+  }
+
   updatePlaylist(playlist: Playlists) {
     return this.http.put(`${this.URL}/updateplaylist`, playlist);
   }

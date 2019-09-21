@@ -1,5 +1,62 @@
-<p>playlist-block works!</p>
-
-<div class="text-center">
+<!-- <div class="row"> -->
+<!-- <div class="text-center">
 <img src="https://community.spotify.com/t5/image/serverpage/image-id/80164iEB9345FE9C8A7BA1/image-size/large?v=1.0&px=999">
+</div> -->
+<div class="row tag-playlist">
+    <img class="col-3 tag-thumb"
+        src="https://img.freepik.com/free-vector/abstract-grunge-live-music-poster_1017-9864.jpg?size=338&ext=jpg">
+    <div class="col-9">
+        <div class="table-wrapper-scroll-y my-custom-scrollbar">
+            <app-song-cell-i-p *ngFor="let song of myPlaylist.songs" class="tag-song" img={{song.link_img_song}}
+                name="nana" author={{song.author}} ></app-song-cell-i-p>
+        </div>
+    </div>
+
 </div>
+<br>
+<div class="infor">
+    <h2>Title: {{myPlaylist.name}}</h2>
+    <h2>Des: {{myPlaylist.des}}</h2>
+</div>
+<button class="btn btn-block btn-primary"><i class="fa fa-thumbs-up">Like</i> </button>
+<div class="social">
+    <h3>Comments</h3>
+    <div>
+        <div class="media tag-media">
+            <img class="mr-3 thumb" src="https://i.pinimg.com/originals/19/c2/63/19c263bda844e645b26e51245a740505.jpg"
+                alt="Generic placeholder image">
+            <div class="media-body">
+                <h5 class="mt-0">Út Thảo</h5>
+                Playlist này chill phết
+            </div>
+        </div>
+        <div class="media tag-media">
+            <img class="mr-3 thumb" src="https://i.pinimg.com/originals/19/c2/63/19c263bda844e645b26e51245a740505.jpg"
+                alt="Generic placeholder image">
+            <div class="media-body">
+                <h5 class="mt-0">Út Nora</h5>
+                Dúng rồi !!
+            </div>
+        </div>
+        <div class="media tag-media">
+            <img class="mr-3 thumb" src="https://vcdn-giaitri.vnecdn.net/2019/04/09/872786000-w500-7955-1554783491.png"
+                alt="Generic placeholder image">
+            <div class="media-body">
+                <h5 class="mt-0">It's you</h5>
+                <form class="form-group">
+
+
+                    <textarea class="form-control" rows="3" id="comment"></textarea>
+                    <input type="submit" value="Post" class="btn btn-primary">
+                </form>
+            </div>
+        </div>
+
+
+
+    </div>
+    <div>
+
+    </div>
+</div>
+<!-- </div> -->

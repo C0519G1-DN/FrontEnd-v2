@@ -14,6 +14,7 @@ import { UploadSongService } from 'src/app/service/upload-song.service';
 export class PlaylistAddSongComponent implements OnInit {
   songs: Songs[];
 
+
   constructor(
     private songService: UploadSongService, 
     private router: Router, 
@@ -24,6 +25,7 @@ export class PlaylistAddSongComponent implements OnInit {
   ngOnInit() {
     this.songService.getAllSong().subscribe(next => 
       { this.songs = next });
+
   }
 
   addTheSong(songId: number) {

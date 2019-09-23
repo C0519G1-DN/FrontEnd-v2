@@ -18,7 +18,9 @@ export class HeaderComponent implements OnInit {
   }
   logout(){
     this.jwtStorage.logOut();
-    window.location.reload();
+    this.router.navigate(['/logout'])
+    
+    
     
   }
 }

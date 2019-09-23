@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { SongServiceService } from 'src/app/service/song-service.service';
+import { UploadSongService } from 'src/app/service/upload-song.service';
 
 @Component({
   selector: 'app-song-views',
@@ -8,10 +9,10 @@ import { SongServiceService } from 'src/app/service/song-service.service';
 })
 export class SongViewsComponent implements OnInit {
 songs: any;
-  constructor( private songService: SongServiceService) { }
+  constructor( private uploadSongService: UploadSongService) { }
 
   ngOnInit() {
-    this.songService.getAllSong().subscribe(next=>this.songs=next)
+    this.uploadSongService.getAllSong().subscribe(next=>this.songs=next)
   }
 
 }

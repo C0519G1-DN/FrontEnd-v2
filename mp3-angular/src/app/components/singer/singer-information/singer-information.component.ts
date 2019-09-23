@@ -34,10 +34,11 @@ export class SingerInformationComponent implements OnInit {
     if(confirm("Xóa nhé")){
     this.activeRouterService.params.subscribe((pama:Params)=>{
       let id = pama.id;
-      this.singerService.deleteSinger(id).subscribe(()=>{
+      this.singerService.deleteSinger(id).subscribe(next=>{
+        console.log(next);
         this.router.navigate(['/singer-list'])
-      })
-    })
+      });
+    });
   }
 }
 }

@@ -24,6 +24,7 @@ import { SongEditComponent } from './components/song/song-edit/song-edit.compone
 // import { PlaylistInfoComponent } from './components/playlist/playlist-info/playlist-info.component';
 import { SingerListComponent } from './components/singer/singer-list/singer-list.component';
 import { PlaylistAddSongComponent } from './components/playlist/playlist-add-song/playlist-add-song.component';
+import { LogoutComponent } from './components/feature/logout/logout.component';
 
 
 
@@ -34,13 +35,17 @@ const routes: Routes = [
     component: HomeComponent,
   },
   {
+    path: 'logout',
+    component: LogoutComponent,
+  },
+  {
     path: 'register',
     component: UserRegisterComponent,
   },
-  // {
-  //   path:'forget-pass',
-  //   component: ForgetPassComponent,
-  // },
+  {
+    path:'forget-pass',
+    component: ForgetPassComponent,
+  },
   {
     path: 'update',
     component: UserUpdateComponent,
@@ -102,7 +107,7 @@ const routes: Routes = [
     component: SingerAddComponent,
   },
   {
-    path: 'singer-infor',
+    path: 'singer-infor/:id',
     component: SingerInformationComponent,
   },
   {

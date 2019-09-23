@@ -1,11 +1,11 @@
 <div class="row ">
     <div *ngFor="let song of songs" [routerLink]="['/song-listening']" class="col-lg-3 col-md-4 col-sm-4 tag">
-        <div class="text-center thumb justify-content-center">
-            <img src={{song.link_img_song}} class="rounded-circle">
-            <div class="text">
-                <h3>{{song.name}}</h3>
-                <h4 *ngFor="let singer of song.singers">{{singer.name}}</h4>
-            </div>
+<div class="text-center thumb justify-content-center">
+        <img src={{song.link_img_song}} class="rounded-circle">
+        <div class="text">
+            <h3>{{song.name}}</h3>
+            <h4 *ngFor="let singer of song.singers" >{{singer.name}}</h4>
         </div>
     </div>
+</div>
 </div>

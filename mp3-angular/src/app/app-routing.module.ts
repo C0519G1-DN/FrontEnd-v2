@@ -42,10 +42,10 @@ const routes: Routes = [
     path: 'register',
     component: UserRegisterComponent,
   },
-  // {
-  //   path:'forget-pass',
-  //   component: ForgetPassComponent,
-  // },
+  {
+    path:'forget-pass',
+    component: ForgetPassComponent,
+  },
   {
     path: 'update',
     component: UserUpdateComponent,

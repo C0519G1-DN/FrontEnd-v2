@@ -14,6 +14,7 @@ export class JwtStorageService {
   constructor() { }
   public logOut() {
     window.localStorage.clear();
+    window.sessionStorage.clear();
   }
 
   public saveUsername(username: string) {

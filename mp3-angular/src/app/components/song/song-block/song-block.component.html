@@ -1,4 +1,36 @@
-<p>song-block works!</p>
 <div class="text-center">
-<img src="https://mp3musicdownloader.net/wp-content/uploads/2018/08/instamp3-1024x768.png">
+    <br>
+    <h3>PLAYING SONG FORM</h3>
+    <br>
+    <div class="inforSong">
+        <h3>Name Song: {{mySong.name}}</h3>
+        <h3>Description: {{mySong.des}}</h3>
+        <h3>Singer: </h3>
+    </div>
+    <br><br>
+    <img src="https://mp3musicdownloader.net/wp-content/uploads/2018/08/instamp3-1024x768.png" width="700px"
+        height="400px">
+    <br><br>
+
+    <div *ngIf="isLike">
+        <button class="btn btn-block btn-primary"><i class="fa fa-thumbs-up" (click)=like()>unLike</i></button>
+    </div>
+    <div *ngIf="!isLike">
+        <button class="btn btn-block btn-primary"><i class="fa fa-thumbs-up" (click)=like()>Like</i></button>
+    </div>
+
+</div>
+<br><br>
+<div class="social">
+    <h3>Comments</h3>
+    <div>
+        <div class="media tag-media">
+            <img class="mr-3 thumb" src="https://i.pinimg.com/originals/19/c2/63/19c263bda844e645b26e51245a740505.jpg"
+                alt="Generic placeholder image">
+            <div class="media-body">
+                <h5 class="mt-0">Minh Hai</h5>
+                Playlist này quá nhảm
+            </div>
+        </div>
+    </div>
 </div>

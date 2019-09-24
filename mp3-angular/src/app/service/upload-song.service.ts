@@ -53,4 +53,12 @@ export class UploadSongService {
   addSingerToSong(value) {
     return this.http.post(`${this.URL}/addSingerToSong`, value);
   }
+
+  likeSong(value) {
+    return this.http.put(`${this.URL}/likesong`,value);
+  }
+
+  getLike(value) {
+    return this.http.post(`${this.URL}/getLike`,value);
+  }
 }

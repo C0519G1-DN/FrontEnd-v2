@@ -12,6 +12,7 @@ import { JwtStorageService } from 'src/app/service/jwt-storage.service';
 export class SongEditComponent implements OnInit {
 
   private informationFormSong: FormGroup;
+  private myID = parseInt(this.jwtStorage.getSong());
 
   constructor(
     private jwtStorage: JwtStorageService,
@@ -23,14 +24,14 @@ export class SongEditComponent implements OnInit {
   }
 
   ngOnInit() {
-     const myID = parseInt(this.jwtStorage.getSong());
+     
     this.informationFormSong = this.formBuilder.group({
-      id: [myID],
+      id: [this.myID],
       name: [''],
       des: [''],
       author: [''],
     })
-    this.songService.getSongById(myID).subscribe(data => {
+    this.songService.getSongById(this.myID).subscribe(data => {
       this.informationFormSong.patchValue(data);
     
   })
@@ -47,13 +48,10 @@ export class SongEditComponent implements OnInit {
 
   deleteSong() {
     if (confirm("Do you really want to delete this song ? ")) {
-      this.activatedRoute.params.subscribe(ID => {
-        console.log(ID);
-        let id = ID.id;
-        this.songService.deleteSong(id).subscribe(data => {
+        this.songService.deleteSong(this.myID).subscribe(data => {
           alert("Deleted Sucessfully");
           this.router.navigate(['/my-contribution']);
-        })
+        
       })
     }
   }

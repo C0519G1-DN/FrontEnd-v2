@@ -23,4 +23,8 @@ export class UserService {
   updateProfile(myInfor: any): Observable<any> {
   return this.http.put<any>(`${this.URL}/update/${myInfor.id}`, myInfor, httpOptions);
 }
+
+  postEmail(email:String): Observable<any>{
+    return this.http.post<any>(`${this.URL}/postEmail`,email,httpOptions);
+  }
 }

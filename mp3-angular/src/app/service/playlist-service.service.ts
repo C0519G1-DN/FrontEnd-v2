@@ -9,12 +9,10 @@ import { Playlists } from '../model/playlist/playlists';
 export class PlaylistServiceService {
 
   // public playlist:PlaylistServiceService[];
-  private URL = "http://localhost:8080/playlists"
+  private URL = 'http://localhost:8080/playlists';
 
   constructor(private http: HttpClient) { }
-  addsong(value){
-    return this.http.post(`${this.URL}/addsong`, value)
-  }
+
   getAllPlaylist() {
     return this.http.get(`${this.URL}`);
   }
@@ -23,8 +21,12 @@ export class PlaylistServiceService {
     return this.http.get(`${this.URL}/getoneplaylist/${id}`);
   }
 
+  getPlaylistByIdToListen(id: number) {
+    return this.http.get(`${this.URL}/getPlaylistToListen/${id}`);
+  }
+
   updatePlaylist(playlist: Playlists) {
-    return this.http.put(`${this.URL}/updateplaylist/${playlist.id}`, playlist);
+    return this.http.put(`${this.URL}/updateplaylist`, playlist);
   }
 
   createPlaylist(playlist: Playlists) {
@@ -32,6 +34,18 @@ export class PlaylistServiceService {
   }
 
   deletePlaylist(id: number) {
-    return this.http.delete(`${this.URL}/deleteplaylist/${id}`);
+    return this.http.put(`${this.URL}/deleteplaylist`,id);
+  }
+
+  getSongOfPlaylist(id: number){
+    return this.http.post(`${this.URL}/songOfPlaylist`,id);
+  }
+
+  addsong(value){
+    return this.http.post(`${this.URL}/addsong`, value)
+  }
+
+  deletesong(value){
+    return this.http.post(`${this.URL}/deletesonginplaylist`,value);
   }
 }

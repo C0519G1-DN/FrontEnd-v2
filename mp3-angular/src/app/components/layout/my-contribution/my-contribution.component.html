@@ -12,8 +12,7 @@
                     <a [routerLink]="['/melon.mp3.vn/artist',item.id, item.name_artist]">
                         <h6>{{ item.name_artist }}</h6>
                     </a>
-                    <button type="button" class="btn btn-primary btn-comment"
-                        [routerLink]="['/melon.mp3.vn/artist', item.id, item.name_artist, 'comment']">Comment</button>
+                    <button type="button" class="btn btn-primary btn-comment" [routerLink]="['/melon.mp3.vn/artist', item.id, item.name_artist, 'comment']">Comment</button>
                 </div>
                 <div class="top-add">
                     <a class="a-add" [routerLink]="['/singer-add']">+</a>
@@ -27,15 +26,13 @@
                     <button type="button" class="btn btn-primary btn-playlist" [routerLink]="['/playlist-add']">Create
                         new playlist</button>
                 </div>
-                <br>
                 <div class="top">
-
                     <ul>
 
-                        <li class="cursor wrapped2" *ngFor="let playlist of playlists" (click)="addSong(playlist.id)"
-                            routerLinkActive="router-link-active">
-                            <p>Name Playlist: {{playlist.name}}</p>
+                        <li class="cursor wrapped2" *ngFor="let playlist of playlists"
+                            (click)="editPlaylist(playlist.id)" routerLinkActive="router-link-active">
 
+                            <p>Name Playlist: {{playlist.name}}</p>
                         </li>
                     </ul>
                 </div>
@@ -50,8 +47,7 @@
                     </button>
                     <div class="top">
                         <ol>
-                            <li class="cursor wrapped2" *ngFor="let item of songs" (click)="editSong(item.id) "
-                                routerLinkActive="router-link-active">
+                            <li class="cursor wrapped2" *ngFor="let item of songs" (click)="editSong(item.id) " routerLinkActive="router-link-active">
                                 <p>Name Song: {{item.name}}</p>
                             </li>
                         </ol>

@@ -6,6 +6,7 @@ import { Router, ActivatedRoute } from '@angular/router';
 import { HeaderComponent } from '../../layout/header/header.component';
 import { AuthService, FacebookLoginProvider } from 'angular-6-social-login';
 import { UserService } from 'src/app/service/user.service';
+import { Location } from '@angular/common';
 
 @Component({
   selector: 'app-login',
@@ -35,6 +36,7 @@ export class LoginComponent implements OnInit {
         this.jwtStorage.saveUsername(next.username);
         this.featureService.islogin = true;
         this.header.myuser= this.jwtStorage.getUsername();
+        location.reload();
     }
     )
   }

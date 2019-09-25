@@ -12,8 +12,9 @@ const SONG_KEY = 'SongID';
 export class JwtStorageService {
 
   constructor() { }
-  public logOut(){
+  public logOut() {
     window.localStorage.clear();
+    window.sessionStorage.clear();
   }
 
   public saveUsername(username: string) {
@@ -26,19 +27,19 @@ export class JwtStorageService {
     window.localStorage.setItem(ID_KEY, id);
   }
 
-  public savePlaylist(id: string){
+  public savePlaylist(id: string) {
     window.sessionStorage.removeItem(PLAYLIST_KEY);
     window.sessionStorage.setItem(PLAYLIST_KEY, id);
   }
-  public getPlaylist(): string{
-    return sessionStorage.getItem(PLAYLIST_KEY)
+  public getPlaylist(): string {
+    return sessionStorage.getItem(PLAYLIST_KEY);
   }
-  public saveSong(id: string){
+  public saveSong(id: string) {
     window.sessionStorage.removeItem(SONG_KEY);
     window.sessionStorage.setItem(SONG_KEY, id);
   }
-  public getSong(): string{
-    return sessionStorage.getItem(SONG_KEY)
+  public getSong(): string {
+    return sessionStorage.getItem(SONG_KEY);
   }
 
   public getID(): string {
@@ -48,7 +49,7 @@ export class JwtStorageService {
   public getUsername(): string {
     return localStorage.getItem(USERNAME_KEY);
   }
-  
+
   public saveToken(token: string) {
     window.localStorage.removeItem(TOKEN_KEY);
     window.localStorage.setItem(TOKEN_KEY, token);

@@ -9,17 +9,20 @@ import { JwtStorageService } from './jwt-storage.service';
 export class FeatureService {
   private url = "http://localhost:8080"
   constructor(private http: HttpClient, private jwtStorage: JwtStorageService) { }
-  login(data): Observable<any>{
+  
+  login(data): Observable<any> {
     return this.http.post<any>(`${this.url}/login`, data);
-}
+  }
 
-user = this.jwtStorage.getUsername();
+  user = this.jwtStorage.getUsername();
   isLogin(): boolean {
     return !!this.user
   };
-islogin= false;
+  
+  islogin = false;
   private state$ = new BehaviorSubject<Boolean>(false);
-  status=this.state$.asObservable();
+  status = this.state$.asObservable();
+
   changeState(myChange) {
     console.log("change to:", myChange);
     this.state$.next(myChange);

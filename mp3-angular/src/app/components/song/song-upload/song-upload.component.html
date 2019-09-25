@@ -17,19 +17,17 @@
                 <input class="form-control" type="text" formControlName="des">
             </div>
             <div class="form-group">
-                <label >File-Song (.mp3)</label>
+                <label>File-Song (.mp3)</label>
                 <br>
-                <input type="file" accept=".mp3" formControlName="file_song"
-                    (change)="onSelectSong($event)">
+                <input type="file" accept=".mp3" formControlName="file_song" (change)="onSelectSong($event)">
             </div>
             <div class="form-group">
                 <label>Img (.jpg)</label>
                 <br>
-                <input  type="file"  accept=".jpg" formControlName="img_song" (change)="onSelectImg($event)">
+                <input type="file" accept=".jpg,.png" formControlName="img_song" (change)="onSelectImg($event)">
             </div>
             <div class="col text-center">
-                <button type="submit" class="btn btn-primary center-block"
-                    style="width: 200px; margin: 20px">UPLOAD</button>
+                <button type="submit" class="btn btn-primary center-block" style="width: 200px; margin: 20px">UPLOAD</button>
             </div>
         </form>
     </div>

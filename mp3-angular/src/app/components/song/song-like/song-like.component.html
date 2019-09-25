@@ -1,4 +1,4 @@
-<p>song-like works!</p>
+<!-- <p>song-like works!</p>
 
 <div class="row ">
         <app-song-cell [routerLink]="['/song-listening']" class="col-lg-3 col-md-4 col-sm-4 tag"
@@ -10,6 +10,24 @@
         <div class="col-lg-3 col-md-4 col-sm-4 tag" [routerLink]="['/song-upload']">
             <div class="text-center justify-content-center thumbAdd">
                 <div class="text">+</div>
+            </div>
+        </div>
+    </div> -->
+
+    <div class="container">
+        <br>
+        <h3 class="wrapped">TOP LIKE SONG</h3>
+        <br>
+        <div class="row ">
+            <div *ngFor="let song of songs"
+                class="col-lg-3 col-md-3 col-sm-3 tag" (click)= playsong(song.id)>
+                <div class="text-center thumb justify-content-center">
+                    <img src={{song.link_img_song}} class="rounded-circle">
+                    <div class="text">
+                        <h3>{{song.name}}</h3>
+                        <h4 *ngFor="let singer of song.singers">{{singer.name}}</h4>
+                    </div>
+                </div>
             </div>
         </div>
     </div>

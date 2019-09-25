@@ -61,4 +61,12 @@ export class UploadSongService {
   getLike(value) {
     return this.http.post(`${this.URL}/getLike`,value);
   }
+
+  getTopLike(){
+    return this.http.get(`${this.URL}/getTopLike`);
+  }
+
+  // getTotalLike(){
+  //   return this.http.get(`${this.URL}/totalLikeSong`);
+  // }
 }

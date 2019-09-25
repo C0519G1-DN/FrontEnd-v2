@@ -21,9 +21,16 @@ export class UserService {
     return this.http.get<any>(`${this.URL}/update/${id}`);
   }
   updateProfile(myInfor: any): Observable<any> {
-    return this.http.put<any>(`${this.URL}/update/${myInfor.id}`, myInfor, httpOptions);
+
+  return this.http.put<any>(`${this.URL}/update/${myInfor.id}`, myInfor, httpOptions);
+}
+
+  postEmail(email:String): Observable<any>{
+    return this.http.post<any>(`${this.URL}/postEmail`,email,httpOptions);
   }
+
   updatePassword(id: number, newPassword: String, currentPassword: String): Observable<any> {
     return this.http.put(`${this.URL}/update-password/${id}`, { newPassword: newPassword, currentPassword: currentPassword });
   } 
+
 }

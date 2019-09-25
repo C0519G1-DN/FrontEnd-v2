@@ -47,7 +47,7 @@ export class UploadSongService {
   }
 
   deleteSong(id: number) {
-    return this.http.delete(`${this.URL}/deleteSong/${id}`);
+    return this.http.put(`${this.URL}/deleteSong`, id);
   }
 
   addSingerToSong(value) {

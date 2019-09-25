@@ -4,7 +4,6 @@ import { Singgers } from 'src/app/model/singger/singgers';
 import { Subscription } from 'rxjs';
 import { Router, ActivatedRoute } from '@angular/router';
 import { SinggerServiceService } from 'src/app/service/singger-service.service';
-import { SongServiceService } from 'src/app/service/song-service.service';
 import { PlaylistServiceService } from 'src/app/service/playlist-service.service';
 import { Playlists } from 'src/app/model/playlist/playlists';
 import { JwtStorageService } from 'src/app/service/jwt-storage.service';
@@ -24,8 +23,10 @@ export class MyContributionComponent implements OnInit {
   playlists: Playlists[];
 
   constructor(
-    public songService: SongServiceService,
-    public uploadSong: UploadSongService,
+
+    public uploadSong : UploadSongService,
+
+
     public routerService: Router,
     public routerActivatedService: ActivatedRoute,
     public singerService: SinggerServiceService,

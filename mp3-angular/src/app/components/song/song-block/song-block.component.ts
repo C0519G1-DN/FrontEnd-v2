@@ -39,7 +39,7 @@ export class SongBlockComponent implements OnInit {
     console.log(username);
     console.log("-------" + idSong);
     console.log(!(this.isLike))
-    var addLikeSong = new likeSong(username, idSong, !this.isLike);
+    var addLikeSong = new likeSong(username, idSong, this.isLike);
     this.songService.likeSong(addLikeSong).subscribe(data => {
       console.log(data);
     })

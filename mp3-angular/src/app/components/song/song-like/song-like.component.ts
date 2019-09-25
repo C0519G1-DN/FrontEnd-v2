@@ -10,6 +10,7 @@ import { Router } from '@angular/router';
 })
 export class SongLikeComponent implements OnInit {
 
+  totalLikes: any;
   songs: any;
 
   constructor(
@@ -19,12 +20,30 @@ export class SongLikeComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    this.uploadSongService.getAllSong().subscribe(next => this.songs = next);
+    // this.getAllSong();
+    this.getTopSong();
+  }
+
+  getAllSong(){
+    this.uploadSongService.getAllSong().subscribe(data => {
+      this.songs = data;
+    })
   }
 
   playsong(idSong: number) {
     const idSongStr = String(idSong);
     this.jwtStorageService.saveSong(idSongStr);
     this.router.navigate(['/song-listening']);
+  }
+
+  getTopSong(){
+    // this.uploadSongService.getTopLike().subscribe(data2 => {
+    //   this.songs = data2;
+    //   console.log(this.songs)
+    // })
+    this.uploadSongService.getTopLike().subscribe(data3 => {
+      this.totalLikes = data3;
+      console.log(data3);
+    })
   }
 }

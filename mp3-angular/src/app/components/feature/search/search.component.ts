@@ -12,13 +12,9 @@ import { PlaylistServiceService } from 'src/app/service/playlist-service.service
 })
 export class SearchComponent implements OnInit, OnDestroy {
   ngOnDestroy(): void {
-    // this.searchService.search = null;
-    // this.listSinger = null;
-    // this.listSong = null;
-    // this.listPlaylist = null;
   }
  
-  aaa = "as";
+  
   listSinger: any;
   listSong: any;
   listPlaylist: any;
@@ -31,22 +27,11 @@ export class SearchComponent implements OnInit, OnDestroy {
     ngOnInit() {
 
       if(this.searchService.search){
-      this.singerService.searchSinger(this.searchService.search).subscribe( 
-        data => {
-         this.listSinger = data;
-         console.log(this.searchService.search)
-        });
-
-        this.songService.searchSongName(this.searchService.search).subscribe( 
-          data => {
-           this.listSong = data;
-           console.log(this.searchService.search)
-          });
-  
-          this.playlistService.searchPlaylistName(this.searchService.search).subscribe( 
+        this.searchService.searchName().subscribe( 
             data => {
-             this.listPlaylist = data;
-             console.log(this.searchService.search)
+             this.listSinger = data[0];
+             this.listSong = data[1];
+             this.listPlaylist = data[2];
             });
           }
     

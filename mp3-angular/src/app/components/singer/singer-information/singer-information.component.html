@@ -1,12 +1,21 @@
 <div class="aa">
-        <img [src]="singer.link_img_singer" alt="" class="rounded-circle" style="width:200px; height:200px" >
-        
+    <img [src]="singer.link_img_singer" alt="" class="rounded-circle" style="width:200px; height:200px">
 </div>
 <div class="a1">
-        <h5>Description:</h5>
-        <p>{{singer.des}}</p>
-        <h4>List Song: </h4>
-        <a href=""></a>
-        <button (click) = delete() class="btn btn-outline-primary btn-sm">Delete</button>
+    <h5>Description:</h5>
+    <p>{{singer.des}}</p>
+    <h4>List Song: </h4>
+    <!-- <a href=""></a> -->
+    <button (click)=delete() class="btn btn-outline-primary btn-sm">Delete</button>
 </div>
-
+<h3 style="border-radius: 0px">Top Comment</h3>
+<div style="border-radius: 23px">
+    <div *ngFor="let singer of comment" style="border:solid 1px; border-radius: 23px; background:whitesmoke">
+        <div style="border-radius: 23px; width: 200px; background-color: forestgreen; font-size: 20px; border: solid 1px">&nbsp;&nbsp;{{singer.user.name}}</div>
+        <div>&nbsp;&nbsp;&nbsp;&nbsp;{{singer.comment}}</div>
+    </div>
+</div>
+<div class=" form-group row " *ngIf="idUser">
+    <textarea class="col-xs-10 col-md-10 col-lg-10 " [(ngModel)]="comments " placeholder="Enter Your Comment " style="border-radius:20px "></textarea>
+    <button class="col-xs-2 col-md-2 col-lg-2 " (click)="postComment() " style="border:1px solid black; border-radius: 20px ">Gửi</button>
+</div>

@@ -57,7 +57,7 @@ import { PlaylistEditComponent } from './components/playlist/playlist-edit/playl
 import { SingerListComponent } from './components/singer/singer-list/singer-list.component';
 
 import { SongEditComponent } from './components/song/song-edit/song-edit.component';
-// import { PlaylistInfoComponent } from './components/playlist/playlist-info/playlist-info.component';
+
 
 
 @NgModule({
@@ -87,21 +87,12 @@ import { SongEditComponent } from './components/song/song-edit/song-edit.compone
     MyContributionComponent,
     SongCellComponent,
     LoginComponent,
-
-
-
     SongCellIPComponent,
     PlaylistAddSongComponent,
     SongFilterPipe,
-
     PlaylistEditComponent,
-
     SingerListComponent,
-
-
     SongEditComponent,
-
-
   ],
   imports: [
     BrowserModule,

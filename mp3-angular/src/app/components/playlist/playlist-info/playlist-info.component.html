@@ -29,30 +29,3 @@
         </div>
     </div>
 </div>
-
-<hr>
-
-<div class="container">
-    <br>
-    <h3 class="wrapped">LIST SONGS IN THIS PLAYLIST</h3>
-    <br>
-    <div class="row ">
-        <div *ngFor="let song of songsOfPlaylist"
-            class="col-lg-3 col-md-3 col-sm-3 tag">
-            <div class="text-center thumb justify-content-center">
-                <img src={{song.link_img_song}} class="rounded-circle">
-                <div class="text">
-                    <h1>{{song.name}}</h1>
-                    <h3 class="edittext" [routerLink]="['/song-listening']" routerLinkActive="router-link-active" >LISTEN</h3>
-                </div>
-                <button class="btn btn-primary" type="button" (click)=deleteSongInPlaylist(song.id)>Delete Song</button>
-            </div>
-        </div>
-    </div>
-    <br>
-    <button class="btn btn-primary wrapped" type="button" [routerLink]="['/playlist-addsong']"
-        routerLinkActive="router-link-active">Add Song</button>
-</div>
-
-<!-- <hr>
-<app-playlist-add-song></app-playlist-add-song> -->

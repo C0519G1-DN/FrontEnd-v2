@@ -27,7 +27,9 @@ export class ForgetPassComponent implements OnInit {
     const { value } = this.searchForm;
     if(confirm("Is your email ? ")){
       this.userService.postEmail(value.email).subscribe(next => {
-        alert("Your Password is resetted, please check your email.")
+        this.router.navigate(['/']);
+        alert("Your Password is resetted, please check your email.");
+        
       },
       error =>{ alert("Wrong email, please recheck")
       })

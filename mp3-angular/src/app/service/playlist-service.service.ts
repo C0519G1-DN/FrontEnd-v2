@@ -48,4 +48,8 @@ export class PlaylistServiceService {
   deletesong(value){
     return this.http.post(`${this.URL}/deletesonginplaylist`,value);
   }
+
+  searchPlaylistName(playlistName:string){
+    return this.http.post(`${this.URL}/searchPlaylistByName`, playlistName);
+  }
 }

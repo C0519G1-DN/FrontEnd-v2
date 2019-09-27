@@ -66,6 +66,10 @@ export class UploadSongService {
     return this.http.get(`${this.URL}/getTopLike`);
   }
 
+  searchSongName(nameSong: string){
+    return this.http.post(`${this.URL}/searchSongName`, nameSong);
+  }
+
   // getTotalLike(){
   //   return this.http.get(`${this.URL}/totalLikeSong`);
   // }

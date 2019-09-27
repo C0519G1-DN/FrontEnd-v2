@@ -122,7 +122,7 @@ const routes: Routes = [
     component: SingerAddComponent,
   },
   {
-    path: 'singer-infor/:id',
+    path: 'singer-infor',
     component: SingerInformationComponent,
   },
   {

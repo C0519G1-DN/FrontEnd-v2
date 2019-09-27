@@ -5,7 +5,7 @@
                 <div class=" z-card-item" style="width: 10rem;height: 15rem;">
                     <img [src]="singer.link_img_singer" class="rounded-circle" style="width:150px; height:150px" alt="...">
                     <div class="card-body text-center">
-                        <a class="card-title" [routerLink]="['/singer-infor',singer.id]">{{singer.name}}</a>
+                        <a class="card-title" (click)="singerInfor(singer.id)">{{singer.name}}</a>
                     </div>
                 </div>
             </div>

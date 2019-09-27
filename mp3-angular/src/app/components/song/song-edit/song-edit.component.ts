@@ -25,12 +25,11 @@ export class SongEditComponent implements OnInit {
     private formBuilder: FormBuilder,
     private activatedRoute: ActivatedRoute,
     private router: Router) {
-
   }
 
   ngOnInit() {
 
-     
+
     this.informationFormSong = this.formBuilder.group({
       id: [this.myID],
       name: [''],
@@ -58,7 +57,7 @@ export class SongEditComponent implements OnInit {
         this.songService.deleteSong(this.myID).subscribe(data => {
           alert("Deleted Sucessfully");
           this.router.navigate(['/my-contribution']);
-        
+
       })
 
     }

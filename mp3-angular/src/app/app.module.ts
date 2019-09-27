@@ -115,12 +115,7 @@ import { PlaylistInfoComponent } from './components/playlist/playlist-info/playl
 
     TempComponent,
 
-
     PlaylistInfoComponent,
-
-
-   
-
 
   ],
   imports: [

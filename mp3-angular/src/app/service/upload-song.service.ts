@@ -26,9 +26,9 @@ export class UploadSongService {
     return this.http.get(`${this.URL}/getsongnew`, data);
   }
 
-  getSongView(data): Observable<any> {
-    return this.http.get(`${this.URL}/getsongview`, data);
-  }
+  // getSongView(data): Observable<any> {
+  //   return this.http.get(`${this.URL}/getsongview`, data);
+  // }
 
   getSongLike(data): Observable<any> {
     return this.http.get(`${this.URL}/getsonglike`, data);
@@ -69,4 +69,16 @@ export class UploadSongService {
   // getTotalLike(){
   //   return this.http.get(`${this.URL}/totalLikeSong`);
   // }
+
+  getViewSong(idSong: number){
+    return this.http.post(`${this.URL}/getViewSong`,idSong);
+  }
+
+  getTopViewSong(){
+    return this.http.get(`${this.URL}/getTopViewSong`);
+  }
+
+  getLikeOfSong(idSong: number){
+    return this.http.post(`${this.URL}/getLikeOfSong`,idSong);
+  }
 }

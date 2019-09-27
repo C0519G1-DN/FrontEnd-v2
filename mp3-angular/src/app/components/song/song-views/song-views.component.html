@@ -20,8 +20,9 @@
             <div class="text-center thumb justify-content-center">
                 <img src={{song.link_img_song}} class="rounded-circle">
                 <div class="text">
-                    <h3>{{song.name}}</h3>
+                    <h1>{{song.name}}</h1>
                     <h4 *ngFor="let singer of song.singers">{{singer.name}}</h4>
+                    <h5>Views: {{song.view_song}}</h5>
                 </div>
             </div>
         </div>

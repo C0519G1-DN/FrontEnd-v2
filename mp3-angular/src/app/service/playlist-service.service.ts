@@ -21,6 +21,10 @@ export class PlaylistServiceService {
     return this.http.get(`${this.URL}/getoneplaylist/${id}`);
   }
 
+  getPlaylistByIdToListen(id: number) {
+    return this.http.get(`${this.URL}/getPlaylistToListen/${id}`);
+  }
+
   updatePlaylist(playlist: Playlists) {
     return this.http.put(`${this.URL}/updateplaylist`, playlist);
   }
@@ -43,5 +47,9 @@ export class PlaylistServiceService {
 
   deletesong(value){
     return this.http.post(`${this.URL}/deletesonginplaylist`,value);
+  }
+
+  searchPlaylistName(playlistName:string){
+    return this.http.post(`${this.URL}/searchPlaylistByName`, playlistName);
   }
 }

@@ -23,8 +23,6 @@ export class SongUploadComponent implements OnInit {
       author: [''],
       img_song: [''],
       user_create: [id],
-
-
     });
   }
   onSelectSong(event) {

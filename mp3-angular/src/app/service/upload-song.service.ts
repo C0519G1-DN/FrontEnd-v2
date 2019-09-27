@@ -12,7 +12,6 @@ const httpOptions = {
 })
 export class UploadSongService {
   private URL = 'http://localhost:8080';
-  
   constructor(private http: HttpClient) { }
 
   getAllSong(): Observable<Songs[]> {
@@ -27,9 +26,9 @@ export class UploadSongService {
     return this.http.get(`${this.URL}/getsongnew`, data);
   }
 
-  getSongView(data): Observable<any> {
-    return this.http.get(`${this.URL}/getsongview`, data);
-  }
+  // getSongView(data): Observable<any> {
+  //   return this.http.get(`${this.URL}/getsongview`, data);
+  // }
 
   getSongLike(data): Observable<any> {
     return this.http.get(`${this.URL}/getsonglike`, data);
@@ -48,10 +47,42 @@ export class UploadSongService {
   }
 
   deleteSong(id: number) {
-    return this.http.delete(`${this.URL}/deleteSong/${id}`);
+    return this.http.put(`${this.URL}/deleteSong`, id);
   }
 
   addSingerToSong(value) {
     return this.http.post(`${this.URL}/addSingerToSong`, value);
+  }
+
+  likeSong(value) {
+    return this.http.put(`${this.URL}/likesong`,value);
+  }
+
+  getLike(value) {
+    return this.http.post(`${this.URL}/getLike`,value);
+  }
+
+  getTopLike(){
+    return this.http.get(`${this.URL}/getTopLike`);
+  }
+
+  searchSongName(nameSong: string){
+    return this.http.post(`${this.URL}/searchSongName`, nameSong);
+  }
+
+  // getTotalLike(){
+  //   return this.http.get(`${this.URL}/totalLikeSong`);
+  // }
+
+  getViewSong(idSong: number){
+    return this.http.post(`${this.URL}/getViewSong`,idSong);
+  }
+
+  getTopViewSong(){
+    return this.http.get(`${this.URL}/getTopViewSong`);
+  }
+
+  getLikeOfSong(idSong: number){
+    return this.http.post(`${this.URL}/getLikeOfSong`,idSong);
   }
 }

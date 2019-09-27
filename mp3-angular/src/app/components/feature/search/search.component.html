@@ -1,0 +1,26 @@
+<div>
+    <h4 class="text-info modal-title">Songs</h4>
+    <ol *ngFor="let itemSong of listSong">
+        <a [routerLink]="'/my-contribution'">
+            <li>{{itemSong?.name}}</li>
+        </a>
+    </ol>
+</div>
+
+<div>
+    <h4 class="text-info modal-title">Singers</h4>
+    <ol *ngFor="let itemSinger of listSinger">
+        <a [routerLink]="'/my-contribution'">
+            <li>{{itemSinger.name}}</li>
+        </a>
+    </ol>
+</div>
+
+<div>
+    <h4 class="text-info modal-title">Playlist</h4>
+    <ol *ngFor="let itemPlaylist of listPlaylist">
+        <a [routerLink]="'/my-contribution'">
+            <li>{{itemPlaylist.name}}</li>
+        </a>
+    </ol>
+</div>

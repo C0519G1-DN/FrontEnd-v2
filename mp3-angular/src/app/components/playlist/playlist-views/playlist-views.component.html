@@ -1,8 +1,8 @@
 
 <!-- <app-playlist-cell [routerLink]="['/playlist-listening']" ></app-playlist-cell> -->
 
-<div class="row tag-playlist" [routerLink]="['/playlist-listening']" *ngFor="let playlist of a">
-        <img class="col-3 tag-thumb"
+<div class="row tag-playlist" *ngFor="let playlist of a">
+        <img class="col-3 tag-thumb" (click)="goToListenning(playlist.id)"
             src="https://images.pexels.com/photos/36764/marguerite-daisy-beautiful-beauty.jpg?auto=compress&cs=tinysrgb&dpr=1&w=500">
         <div class="col-9">
             <div class="table-wrapper-scroll-y my-custom-scrollbar" >

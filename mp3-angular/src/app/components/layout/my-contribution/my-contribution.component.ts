@@ -4,7 +4,6 @@ import { Singgers } from 'src/app/model/singger/singgers';
 import { Subscription } from 'rxjs';
 import { Router, ActivatedRoute } from '@angular/router';
 import { SinggerServiceService } from 'src/app/service/singger-service.service';
-import { SongServiceService } from 'src/app/service/song-service.service';
 import { PlaylistServiceService } from 'src/app/service/playlist-service.service';
 import { Playlists } from 'src/app/model/playlist/playlists';
 import { JwtStorageService } from 'src/app/service/jwt-storage.service';
@@ -24,8 +23,10 @@ export class MyContributionComponent implements OnInit {
   playlists: Playlists[];
 
   constructor(
-    public songService: SongServiceService,
-    public uploadSong: UploadSongService,
+
+    public uploadSong : UploadSongService,
+
+
     public routerService: Router,
     public routerActivatedService: ActivatedRoute,
     public singerService: SinggerServiceService,
@@ -39,19 +40,25 @@ export class MyContributionComponent implements OnInit {
       this.viewListSong();
     }
 
+    viewListPlaylist() {
+      this.playlistService.getAllPlaylist().subscribe((data: Playlists[]) => {
+        this.playlists = data;
+      });
+    }
+    editPlaylist(idPlaylist: number) {
+      const idPlaylistStr = String(idPlaylist);
+      console.log("number" + idPlaylist);
+      this.jwtStorageService.savePlaylist(idPlaylistStr);
+      console.log("string" + idPlaylistStr);
+      this.routerService.navigate(['/playlist-edit']);
+    }
+
     viewListSong() {
       this.uploadSong.getAllSong().subscribe((data) => {
         console.log(data);
         this.songs = data;
       });
     }
-
-    viewListPlaylist() {
-      this.playlistService.getAllPlaylist().subscribe((data: Playlists[]) => {
-        this.playlists = data;
-      });
-    }
-
     addSong(id: number) {
       const a = String(id);
       this.jwtStorageService.savePlaylist(a);

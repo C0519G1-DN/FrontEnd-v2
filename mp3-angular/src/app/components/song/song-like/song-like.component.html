@@ -1,15 +1,18 @@
-<p>song-like works!</p>
+<div class="container">
+    <br>
+    <h3 class="wrapped">TOP LIKE SONG</h3>
+    <br>
+    <div class="row ">
 
-<div class="row ">
-        <app-song-cell [routerLink]="['/song-listening']" class="col-lg-3 col-md-4 col-sm-4 tag"
-            img="https://images.pexels.com/photos/36764/marguerite-daisy-beautiful-beauty.jpg?auto=compress&cs=tinysrgb&dpr=1&w=500"
-            name="Perfect" singer="Ed"></app-song-cell>
-        <app-song-cell [routerLink]="['/song-listening']" class="col-lg-3 col-md-4 col-sm-4 tag"
-            img="https://images.pexels.com/photos/36764/marguerite-daisy-beautiful-beauty.jpg?auto=compress&cs=tinysrgb&dpr=1&w=500"
-            name="Perfect" singer="Ed"></app-song-cell> 
-        <div class="col-lg-3 col-md-4 col-sm-4 tag" [routerLink]="['/song-upload']">
-            <div class="text-center justify-content-center thumbAdd">
-                <div class="text">+</div>
+        <div *ngFor="let songs of totalLikes" class="col-lg-3 col-md-3 col-sm-3 tag" (click)=playsong(songs[0].id)>
+            <div class="text-center thumb justify-content-center">
+                <img src={{songs[0].link_img_song}} class="rounded-circle">
+                <div class="text">
+                    <h3>{{songs[0].name}}</h3>
+                    <!-- <h4 *ngFor="let singer of songs[0].singers">{{singer.song.name}}</h4> -->
+                    <h3>Totals like: {{songs[1]}}</h3>
+                </div>
             </div>
         </div>
     </div>
+</div>

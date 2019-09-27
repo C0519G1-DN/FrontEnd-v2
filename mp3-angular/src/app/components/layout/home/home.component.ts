@@ -20,6 +20,7 @@ export class HomeComponent implements OnInit {
   public subscription: Subscription;
   public subscriptionplaylist: Subscription;
   public playlists: Playlists[];
+  private totalLikes: any;
 
   constructor(
     private uploadSong: UploadSongService,
@@ -28,7 +29,7 @@ export class HomeComponent implements OnInit {
     public routerActivatedService: ActivatedRoute,
     public jwtStorage: JwtStorageService,
     public feature: FeatureService,
-    
+    private router: Router,
     private playlistService: PlaylistServiceService
     
     ) { } 
@@ -36,12 +37,13 @@ export class HomeComponent implements OnInit {
   ngOnInit() {
     this.viewListPlaylist();
     this.viewListSong();
+    this.getTopSong();
     // window.location.reload();
   }
 
   viewListSong(){
     this.uploadSong.getAllSong().subscribe((data)=>{
-      console.log(data);
+      // console.log(data);
       this.songs = data;
     })
   }
@@ -49,6 +51,19 @@ export class HomeComponent implements OnInit {
   viewListPlaylist() {
     this.playlistService.getAllPlaylist().subscribe((data: Playlists[]) => {
       this.playlists = data;
+    })
+  }
+
+  playsong(idSong: number) {
+    const idSongStr = String(idSong);
+    this.jwtStorage.saveSong(idSongStr);
+    this.router.navigate(['/song-listening']);
+  }
+
+  getTopSong(){
+    this.uploadSong.getTopLike().subscribe(data3 => {
+      this.totalLikes = data3;
+      console.log(data3);
     })
   }
 

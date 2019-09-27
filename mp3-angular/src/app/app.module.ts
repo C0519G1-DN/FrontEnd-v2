@@ -60,6 +60,7 @@ import { SongEditComponent } from './components/song/song-edit/song-edit.compone
 import { LogoutComponent } from './components/feature/logout/logout.component';
 import { SearchComponent } from './components/feature/search/search.component';
 import { TempComponent } from './components/feature/temp/temp.component';
+import { PlaylistInfoComponent } from './components/playlist/playlist-info/playlist-info.component';
 
 // import { PlaylistInfoComponent } from './components/playlist/playlist-info/playlist-info.component';
 
@@ -113,6 +114,9 @@ import { TempComponent } from './components/feature/temp/temp.component';
 
 
     TempComponent,
+
+
+    PlaylistInfoComponent,
 
 
    

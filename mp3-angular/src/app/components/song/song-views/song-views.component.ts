@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { SongServiceService } from 'src/app/service/song-service.service';
 import { UploadSongService } from 'src/app/service/upload-song.service';
 import { JwtStorageService } from 'src/app/service/jwt-storage.service';
 import { Router } from '@angular/router';
@@ -18,7 +17,8 @@ songs: any;
     ) { }
 
   ngOnInit() {
-    this.uploadSongService.getAllSong().subscribe(next=>this.songs=next)
+    // this.uploadSongService.getAllSong().subscribe(next=>this.songs=next)
+    this.getTopViewSong();
   }
 
   playsong(idSong: number){
@@ -27,4 +27,10 @@ songs: any;
     this.router.navigate(['/song-listening']);
   }
 
+  getTopViewSong(){
+    this.uploadSongService.getTopViewSong().subscribe(data => {
+      this.songs = data;
+      console.log(data)
+    })
+  }
 }

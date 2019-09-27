@@ -13,6 +13,8 @@ export class SongBlockComponent implements OnInit {
   isLike: any;
   private idSong = parseInt(this.jwtStorageService.getSong());
   private mySong: any;
+  private views: any;
+  private totalLikesOfSong: any;
 
   constructor(
     private songService: UploadSongService,
@@ -22,14 +24,16 @@ export class SongBlockComponent implements OnInit {
   ngOnInit() {
     this.songService.getSongById(this.idSong).subscribe(data => {
       this.mySong = data;
+      console.log(this.mySong)
     })
     var username = this.jwtStorageService.getUsername();
-    var idSong = parseInt(this.jwtStorageService.getSong());
-    var getLikeSong = new likeSong(username, idSong, false);
+    var getLikeSong = new likeSong(username, this.idSong, false);
     this.songService.getLike(getLikeSong).subscribe(data => {
       this.isLike = data;
       console.log(data)
     })
+    this.getViews();
+    this.getLike();
   }
 
   like() {
@@ -42,6 +46,19 @@ export class SongBlockComponent implements OnInit {
     var addLikeSong = new likeSong(username, idSong, this.isLike);
     this.songService.likeSong(addLikeSong).subscribe(data => {
       console.log(data);
+    })
+  }
+
+  getViews(){
+    this.songService.getViewSong(this.idSong).subscribe(data => {
+      this.views = data;
+    })
+  }
+
+  getLike(){
+    this.songService.getLikeOfSong(this.idSong).subscribe(data3 => {
+      this.totalLikesOfSong = data3;
+      console.log(data3);
     })
   }
 }

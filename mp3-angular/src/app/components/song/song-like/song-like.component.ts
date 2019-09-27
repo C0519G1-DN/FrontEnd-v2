@@ -37,10 +37,6 @@ export class SongLikeComponent implements OnInit {
   }
 
   getTopSong(){
-    // this.uploadSongService.getTopLike().subscribe(data2 => {
-    //   this.songs = data2;
-    //   console.log(this.songs)
-    // })
     this.uploadSongService.getTopLike().subscribe(data3 => {
       this.totalLikes = data3;
       console.log(data3);

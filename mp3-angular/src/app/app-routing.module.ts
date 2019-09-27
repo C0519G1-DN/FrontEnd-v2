@@ -27,6 +27,7 @@ import { PlaylistAddSongComponent } from './components/playlist/playlist-add-son
 import { LogoutComponent } from './components/feature/logout/logout.component';
 import { SearchComponent } from './components/feature/search/search.component';
 import { TempComponent } from './components/feature/temp/temp.component';
+import { PlaylistInfoComponent } from './components/playlist/playlist-info/playlist-info.component';
 
 
 
@@ -83,6 +84,10 @@ const routes: Routes = [
   {
     path: 'playlist-add',
     component: PlaylistAddComponent,
+  },
+  {
+    path: 'playlist-info',
+    component: PlaylistInfoComponent,
   },
   {
     path: 'playlist-addsong',

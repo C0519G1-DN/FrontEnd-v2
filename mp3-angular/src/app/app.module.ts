@@ -110,12 +110,17 @@ import { PlaylistInfoComponent } from './components/playlist/playlist-info/playl
     LogoutComponent,
 
 
+
+
+
+
     SearchComponent,
 
 
     TempComponent,
 
     PlaylistInfoComponent,
+
 
   ],
   imports: [

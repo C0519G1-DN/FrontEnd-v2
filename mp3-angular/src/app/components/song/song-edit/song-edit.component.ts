@@ -16,6 +16,7 @@ export class SongEditComponent implements OnInit {
   listSinger: any;
   search: string;
   private informationFormSong: FormGroup;
+  private myID = parseInt(this.jwtStorage.getSong());
 
   constructor(
     private jwtStorage: JwtStorageService,
@@ -24,20 +25,20 @@ export class SongEditComponent implements OnInit {
     private formBuilder: FormBuilder,
     private activatedRoute: ActivatedRoute,
     private router: Router) {
-
   }
 
   ngOnInit() {
-     // tslint:disable-next-line: radix
-     const myID = parseInt(this.jwtStorage.getSong());
-     this.informationFormSong = this.formBuilder.group({
-      id: [myID],
+
+
+    this.informationFormSong = this.formBuilder.group({
+      id: [this.myID],
       name: [''],
       des: [''],
       author: [''],
-      // singer: ['']
-    });
-     this.songService.getSongById(myID).subscribe(data => {
+    })
+    this.songService.getSongById(this.myID).subscribe(data => {
+
+
       this.informationFormSong.patchValue(data);
   });
   }
@@ -51,15 +52,14 @@ export class SongEditComponent implements OnInit {
   }
 
   deleteSong() {
-    if (confirm('Do you really want to delete this song ?')) {
-      this.activatedRoute.params.subscribe(ID => {
-        console.log(ID);
-        const id = ID.id;
-        this.songService.deleteSong(id).subscribe(data => {
-          alert('Deleted Sucessfully');
+
+    if (confirm("Do you really want to delete this song ? ")) {
+        this.songService.deleteSong(this.myID).subscribe(data => {
+          alert("Deleted Sucessfully");
           this.router.navigate(['/my-contribution']);
-        });
-      });
+
+      })
+
     }
   }
 

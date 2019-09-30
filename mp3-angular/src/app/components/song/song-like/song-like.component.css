@@ -1,5 +1,9 @@
+.wrapped{
+  text-align: center;
+}
+
 .tag{
-    padding: 10px 30px
+    padding: 10px;
 }
 .tag:hover{
   cursor: pointer;
@@ -12,9 +16,28 @@
     height: 250px;
 }
 
-  .text {
+  .textp {
     top: 50%;
     color: black;
     font-size: 100px;
     text-align: center;
   } 
+
+img{
+    height: 150px;
+    width: 100px;   
+}
+.thumb{
+    background: rgb(236, 210, 186);
+    border-radius: 10% ;
+    border: 1px solid blue;
+    /* height: 300px; */
+    padding: 10px;
+}
+.text{
+    padding: 10px
+}
+.edittext{
+  align-content: center;
+  color: blue;
+}

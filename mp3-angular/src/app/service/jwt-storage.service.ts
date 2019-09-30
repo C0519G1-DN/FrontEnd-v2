@@ -5,6 +5,7 @@ const ID_KEY = 'MyID';
 const USERNAME_KEY = 'AuthUsername';
 const PLAYLIST_KEY = 'PlaylistID';
 const SONG_KEY = 'SongID';
+const SINGER_KEY = 'SingerID';
 
 @Injectable({
   providedIn: 'root'
@@ -14,6 +15,7 @@ export class JwtStorageService {
   constructor() { }
   public logOut() {
     window.localStorage.clear();
+    window.sessionStorage.clear();
   }
 
   public saveUsername(username: string) {
@@ -39,6 +41,14 @@ export class JwtStorageService {
   }
   public getSong(): string {
     return sessionStorage.getItem(SONG_KEY);
+  }
+
+  public saveSinger(id: string) {
+    window.sessionStorage.removeItem(SINGER_KEY);
+    window.sessionStorage.setItem(SINGER_KEY, id);
+  }
+  public getSinger(): string {
+    return sessionStorage.getItem(SINGER_KEY);
   }
 
   public getID(): string {

@@ -4,6 +4,7 @@ export class Singgers {
     id:number;
     name: string;
     des:string;
-    link_img_singer:string;
+    img_singer: string;
+   // link_img_singer:string;
     // list_song: Songs[];
 }

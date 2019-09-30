@@ -1,11 +1,30 @@
-<div class="row ">
-    <div *ngFor="let song of songs" [routerLink]="['/song-listening']" class="col-lg-3 col-md-4 col-sm-4 tag">
-<div class="text-center thumb justify-content-center">
-        <img src={{song.link_img_song}} class="rounded-circle">
-        <div class="text">
-            <h3>{{song.name}}</h3>
-            <h4 *ngFor="let singer of song.singers" >{{singer.name}}</h4>
+<!-- <div class="row ">
+    <div *ngFor="let song of songs" (click)= playsong(song.id) class="col-lg-3 col-md-4 col-sm-4 tag">
+        <div class="text-center thumb justify-content-center">
+            <img src={{song.link_img_song}} class="rounded-circle">
+            <div class="text">
+                <h3>{{song.name}}</h3>
+                <h4 *ngFor="let singer of song.singers">{{singer.name}}</h4>
+            </div>
         </div>
     </div>
-</div>
+</div> -->
+
+<div class="container">
+    <br>
+    <h3 class="wrapped">TOP VIEWS SONG</h3>
+    <br>
+    <div class="row ">
+        <div *ngFor="let song of songs"
+            class="col-lg-3 col-md-3 col-sm-3 tag" (click)= playsong(song.id)>
+            <div class="text-center thumb justify-content-center">
+                <img src={{song.link_img_song}} class="rounded-circle">
+                <div class="text">
+                    <h1>{{song.name}}</h1>
+                    <h4 *ngFor="let singer of song.singers">{{singer.name}}</h4>
+                    <h5>Views: {{song.view_song}}</h5>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>

@@ -106,6 +106,8 @@ import { LogoutComponent } from './components/feature/logout/logout.component';
     LogoutComponent,
 
 
+
+
   ],
   imports: [
     BrowserModule,

@@ -16,15 +16,15 @@ export class PlaylistAddSongComponent implements OnInit {
 
 
   constructor(
-    private songService: UploadSongService, 
-    private router: Router, 
-    private jwtStorageService: JwtStorageService, 
+    private songService: UploadSongService,
+    private router: Router,
+    private jwtStorageService: JwtStorageService,
     private playlistService: PlaylistServiceService
     ) { }
 
   ngOnInit() {
-    this.songService.getAllSong().subscribe(next => 
-      { this.songs = next });
+    this.songService.getAllSong().subscribe(next =>
+      { this.songs = next; });
 
   }
 

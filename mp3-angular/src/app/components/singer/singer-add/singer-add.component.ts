@@ -53,7 +53,7 @@ export class SingerAddComponent implements OnInit{
         //   this.upsingerForm.get('des').setValue('');
         //   this.upsingerForm.get('img_singer').setValue('');
         // }
-        this.router.navigate(["/singer-list"])
+        this.router.navigate(["/my-contribution"])
       }
       ,
       error => {

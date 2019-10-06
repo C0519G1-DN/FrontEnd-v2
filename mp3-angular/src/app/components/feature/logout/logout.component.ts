@@ -17,5 +17,4 @@ export class LogoutComponent implements OnInit, OnDestroy {
   ngOnDestroy(): void {
     location.reload();
   }
-
 }

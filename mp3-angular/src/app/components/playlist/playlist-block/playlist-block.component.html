@@ -1,62 +1,63 @@
-<!-- <div class="row"> -->
-<!-- <div class="text-center">
-<img src="https://community.spotify.com/t5/image/serverpage/image-id/80164iEB9345FE9C8A7BA1/image-size/large?v=1.0&px=999">
-</div> -->
+<br>
 <div class="row tag-playlist">
-    <img class="col-3 tag-thumb"
-        src="https://img.freepik.com/free-vector/abstract-grunge-live-music-poster_1017-9864.jpg?size=338&ext=jpg">
-    <div class="col-9">
+           <div class="col-4 tag-thumb">
+            <div id="bg">
+                
+            </div>
+            <div>
+                <div id="image">
+                    <img src={{myPlaylist.songs[currentSong].link_img_song}} >
+                </div>
+                <div id="player">
+                    <div id="songTitle">{{myPlaylist.songs[currentSong].name}}</div>
+                    <div id="buttons">
+                        <button id="pre" (click)="pre()"><img src="assets/pre.png" height="90%" width="90%"></button>
+                        <audio  src={{myPlaylist.songs[currentSong].link_song}} controls id="audioPlayer"></audio>
+                        <button id="next" (click)="next()"><img src="https://static.thenounproject.com/png/8555-200.png" height="90%" width="90%"></button>
+                    </div>  
+                </div>
+            </div>
+        </div>
+    <div class="col-8">
         <div class="table-wrapper-scroll-y my-custom-scrollbar">
-            <app-song-cell-i-p *ngFor="let song of myPlaylist.songs" class="tag-song" img={{song.link_img_song}}
-                name="nana" author={{song.author}} ></app-song-cell-i-p>
+            <app-song-cell-i-p *ngFor="let song of myPlaylist.songs; index as i" 
+            (click)="gogo(i)"
+            class="tag-song" img={{song.link_img_song}}
+                name={{song.name}} author={{song.author}}></app-song-cell-i-p>
         </div>
     </div>
-
 </div>
-<br>
-<div class="infor">
+
+
+
+<!-- <br>
+<div class="infor text-center text-capitalize">
     <h2>Title: {{myPlaylist.name}}</h2>
     <h2>Des: {{myPlaylist.des}}</h2>
 </div>
-<button class="btn btn-block btn-primary"><i class="fa fa-thumbs-up">Like</i> </button>
+<button class="btn btn-block btn-default " [ngStyle]="isLiked && {'color': 'blue'}" (click)=dolike()><i class="fa fa-eye">View</i> {{totalView}} <span class="col-2"></span><i class="fa fa-thumbs-up">Like</i> {{totalLike}}</button>
 <div class="social">
-    <h3>Comments</h3>
-    <div>
+    <h3 style="padding-left: 20px"><i class="fa fa-comments"> Comments</i> </h3>
+    <div *ngFor="let res of resComment">
         <div class="media tag-media">
             <img class="mr-3 thumb" src="https://i.pinimg.com/originals/19/c2/63/19c263bda844e645b26e51245a740505.jpg"
                 alt="Generic placeholder image">
             <div class="media-body">
-                <h5 class="mt-0">Út Thảo</h5>
-                Playlist này chill phết
+                <h5 class="mt-0">{{res.username}}</h5>
+                {{res.comment}}
             </div>
         </div>
-        <div class="media tag-media">
-            <img class="mr-3 thumb" src="https://i.pinimg.com/originals/19/c2/63/19c263bda844e645b26e51245a740505.jpg"
-                alt="Generic placeholder image">
-            <div class="media-body">
-                <h5 class="mt-0">Út Nora</h5>
-                Dúng rồi !!
-            </div>
-        </div>
-        <div class="media tag-media">
-            <img class="mr-3 thumb" src="https://vcdn-giaitri.vnecdn.net/2019/04/09/872786000-w500-7955-1554783491.png"
-                alt="Generic placeholder image">
-            <div class="media-body">
-                <h5 class="mt-0">It's you</h5>
-                <form class="form-group">
-
-
-                    <textarea class="form-control" rows="3" id="comment"></textarea>
-                    <input type="submit" value="Post" class="btn btn-primary">
-                </form>
-            </div>
-        </div>
-
-
 
     </div>
-    <div>
-
+    <div class="media tag-media">
+        <img class="mr-3 thumb" src="https://vcdn-giaitri.vnecdn.net/2019/04/09/872786000-w500-7955-1554783491.png"
+            alt="Generic placeholder image">
+        <div class="media-body">
+            <h5 class="mt-0">{{myUsername}}</h5>
+            <textarea class="form-control" rows="2" id="comment" [(ngModel)]="theComment"
+                name="theComment" placeholder="Write something..."></textarea>
+            <button (click)="postComment()"  class="btn btn-primary">Post</button>
+        </div>
     </div>
-</div>
-<!-- </div> -->
+    
+</div> -->

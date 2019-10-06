@@ -1,7 +1,5 @@
 
-<!-- <app-playlist-cell [routerLink]="['/playlist-listening']" ></app-playlist-cell> -->
-
-<div class="row tag-playlist" *ngFor="let playlist of a">
+<!-- <div class="row tag-playlist" *ngFor="let playlist of Playlists">
         <img class="col-3 tag-thumb" (click)="goToListenning(playlist.id)"
             src="https://images.pexels.com/photos/36764/marguerite-daisy-beautiful-beauty.jpg?auto=compress&cs=tinysrgb&dpr=1&w=500">
         <div class="col-9">
@@ -12,16 +10,37 @@
             </div>
         </div>
         
-    </div>
+    </div> -->
 
-<!-- <div *ngFor="let playlist of a">
-    {{playlist.name}}
-
-    <div *ngFor="let song of playlist.songs">
+    <div class="row tag-playlist" *ngFor="let playlist of Playlists, index as i">
+        <h2 class="col-10 text-uppercase bg-primary text-white">{{playlist.name}}</h2>
+    
+        <h3 class="bg-primary text-white col-2 text-center align-middle"><i class="fa fa-eye"></i>
+            {{playlist.view}}</h3>
+    
         
-        <app-song-cell-i-p class="tag-song"
-                img={{song.link_img_song}}
-                name={{song.name}} author={{song.author}}></app-song-cell-i-p>
+        <img class="col-3 tag-thumb" (click)="goToListenning(playlist.id)"
+            src="https://images.pexels.com/photos/36764/marguerite-daisy-beautiful-beauty.jpg?auto=compress&cs=tinysrgb&dpr=1&w=500">
+        <div class="col-9">
+            <div class="table-wrapper-scroll-y my-custom-scrollbar">
+                <app-song-cell-i-p *ngFor="let song of playlist.songs" class="tag-song" img={{song.link_img_song}}
+                    name={{song.name}} author={{song.author}}></app-song-cell-i-p>
+            </div>
+        </div>
     </div>
 
-</div> -->
+    <!-- <audio controls style="outline: none">
+        <source (click)="audioPlayer()" src="" type="audio/mp3">
+    </audio> -->
+    
+    <!-- <audio controls id="audioPlayer">
+        <source  src="assets/aaa.mp3" type="audio/mp3">
+
+    </audio>
+    <audio controls id="audioPlayer">
+        <source  src="assets/AnhDechCanGiNhieuNgoaiEm.mp3" type="audio/mp3">
+
+    </audio> -->
+
+
+    <!-- <p (click)="audioPlayer()" >đá</p> -->

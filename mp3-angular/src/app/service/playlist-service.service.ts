@@ -56,7 +56,7 @@ export class PlaylistServiceService {
   getMostViewPlaylist() {
     return this.http.get(`${this.URL}/getMostViewPlaylist/`);
 
-
+  }
   searchPlaylistName(playlistName:string){
     return this.http.post(`${this.URL}/searchPlaylistByName`, playlistName);
 

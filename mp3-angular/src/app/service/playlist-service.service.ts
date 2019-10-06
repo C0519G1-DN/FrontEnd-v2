@@ -48,4 +48,11 @@ export class PlaylistServiceService {
   deletesong(value){
     return this.http.post(`${this.URL}/deletesonginplaylist`,value);
   }
+  addViewPlaylist(idPlaylist){
+    return this.http.post(`${this.URL}/addViewPlaylist`,idPlaylist);
+  }
+
+  getMostViewPlaylist() {
+    return this.http.get(`${this.URL}/getMostViewPlaylist/`);
+  }
 }

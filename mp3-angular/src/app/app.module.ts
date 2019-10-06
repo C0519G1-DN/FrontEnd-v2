@@ -58,6 +58,7 @@ import { SingerListComponent } from './components/singer/singer-list/singer-list
 
 import { SongEditComponent } from './components/song/song-edit/song-edit.component';
 import { LogoutComponent } from './components/feature/logout/logout.component';
+import { PlayPlaylistComponent } from './components/feature/play-playlist/play-playlist.component';
 // import { PlaylistInfoComponent } from './components/playlist/playlist-info/playlist-info.component';
 
 
@@ -104,6 +105,9 @@ import { LogoutComponent } from './components/feature/logout/logout.component';
 
 
     LogoutComponent,
+
+
+    PlayPlaylistComponent,
 
 
   ],
